@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .navbar{
+            background: rgb(144,111,53);
+            background: linear-gradient(180deg, rgba(144,111,53,1) 0%, rgba(214,167,85,1) 100%);
+        }
+        .mitr-extralight {
+            font-family: "Mitr", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        .mitr-light {
+            font-family: "Mitr", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .mitr-regular {
+            font-family: "Mitr", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .mitr-medium {
+            font-family: "Mitr", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .mitr-semibold {
+            font-family: "Mitr", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .mitr-bold {
+            font-family: "Mitr", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .kolker-brush-regular {
+            font-family: "Kolker Brush", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+    </style>
+</head>
+<body class="bg-black">
+    <div class="navbar">
+        <nav class="h-[60px] mitr-regular flex justify-between items-center w-[92%] mx-auto">
+            <div class="pl-10 kolker-brush-regular text-[42px] text-white [text-shadow:_2px_3px_3px_rgb(0_0_0_/_40%)]">SHABU <span class="text-black">PLZ</span></div>
+            <div class="nav-links md:static absolute bg-white md:bg-transparent md:min-h-fit min-h-[30vh] left-0 top-[-500px] md:w-auto w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:space-x-3 md:md:space-y-0 space-y-5">
+                    <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a href="#">หน้าหลัก</a></li>
+                    <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a href="#">เมนู</a></li>
+                    <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a href="#">จองโต๊ะ</a></li>
+                    <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a href="#">ดูรายการอาหารที่สั่ง</a></li>
+                </ul>
+            </div>
+            <div class="flex items-center space-x-5">
+                <div class="py-2 px-4 rounded-full hover:bg-white transition hover:scale-105 hover:drop-shadow-md">
+                    <a href="#" class="flex space-x-5">
+                        <i class="fa-solid fa-user" style="font-size: 20px;"></i>
+                        <p>เข้าสู่ระบบ</p>
+                    </a>
+                </div>
+                <img onclick="onToggleMenu()" class="menu w-[25px] cursor-pointer md:hidden" src="../src/img/menu.png">
+            </div>
+        </nav>
+    </div>
+    <script>
+        let navlinks = document.querySelector(".nav-links");
+        function onToggleMenu() {
+            let menu = document.querySelector(".menu");
+            if(menu.src.endsWith("menu.png")){
+                menu.src = "../src/img/close.png";
+            }else{
+                menu.src = "../src/img/menu.png";
+            }
+            navlinks.classList.toggle('top-[60px]')
+        }
+    </script>
+</body>
+</html>
