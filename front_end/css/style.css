@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;400&family=Libre+Caslon+Text&family=Kolker+Brush&display=swap');
+
+
+body {
+  margin: 0;
+}
+
+nav#navigation {
+  background: #906F35;
+  background: linear-gradient(
+    180deg,
+    rgba(133, 91, 0, 1) 0%,
+    rgba(167, 114, 0, 1) 23%,
+    #906F35 100%
+  );
+  height: auto;
+  padding-block: 20px;
+  padding-inline: 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  font-family: 'Noto Sans Thai';
+}
+
+#logo {
+  font-family: 'Kolker Brush';
+  font-size:250%;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Noto Sans Thai';
+}
+
+#menu li {
+  float: left;
+  padding-inline: 10px;
+  margin-inline: 5px;
+}
+
+#menu li.active {
+  background-color: white;
+  border-radius: 20px;
+}
+
+#banner {
+  padding-block: 5px;
+  background-color: whitesmoke;
+  background-color: rgba(205, 202, 202, 0.5);
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 24px;
+}
+
+.login {
+  display: flex;
+  gap: 10px;
+}
+
+#landing {
+  background-image: url('./images/landing.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 100vw;
+}
+
+.landing__container {
+  margin: auto;
+  height: calc(100vh - 62px);
+  width: fit-content;
+  max-width: 1280px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  color: white;
+  font-size: 8em;
+  margin: 0;
+}
+
+.caption-text {
+  color: white;
+  margin: 15px;
+  font-family: 'Noto Sans Thai';
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.buttons .button {
+  text-align: center;
+  background-color:#555960;
+  color: white;
+  font-size: large;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin: 0 10px;
+  font-family: 'Noto Sans Thai';
+}
+
+.buttons .button:hover {
+  background-color: darkgrey;
+  transition: background-color 0.3s ease;
+}
+
+.section {
+  background-color: black;
+  color: white;
+  padding-block: 80px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Noto Sans Thai';
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.grid-container {
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 45px;
+  color: rgba(167, 114, 0, 1);
+}
+
+.box-text {
+  background-color:#817b85;
+  padding-inline: 20px;
+  padding-block: 30px;
+  border-radius: 10px;
+  font-size: larger;
+  text-indent: 50px;
+}
+
+.promotion-text {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 28px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid white;
+  width: fit-content;
+}
+
+.grid-4-container {
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.box-image {
+  width: 100%;
+}
+
+.box-banner {
+  background-color:#B78D43;
+  padding: 2px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+footer {
+  width: 100vw;
+  font-family: 'Noto Sans Thai';
+  padding: 0;
+}
+
+footer .contact {
+  background-color: #817B85;
+  padding-inline: 50px;
+  padding-block: 20px;
+}
+
+.contact-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+}
+
+.detail-item {
+  display: flex;
+  gap: 20px;
+  margin-block: 10px;
+}
+
+.copy-right {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #817B85;
+}
+
+footer .copy-right {
+  background-color: #D7D4CF;
+}
