@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,99 +13,21 @@
     />
     <title>SHABU PLZ</title>
   </head>
-  <body>
-    <nav id="navigation">
-      <div id="logo">SHABU PLZ</div>
-      <div id="menu">
-        <ul>
-          <li class="active">หน้าหลัก</li>
-          <li>เมนู</li>
-          <li>จองโต๊ะ</li>
-          <li>ดูรายการอาหารที่สั่ง</li>
-        </ul>
-      </div>
-      <div class="login">
-        <div style="width: 24px">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <circle
-                opacity="0.5"
-                cx="12"
-                cy="9"
-                r="3"
-                stroke="#000000"
-                stroke-width="1.5"
-              ></circle>
-              <circle
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="#000000"
-                stroke-width="1.5"
-              ></circle>
-              <path
-                opacity="0.5"
-                d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20"
-                stroke="#000000"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              ></path>
-            </g>
-          </svg>
-        </div>
-        <div>เข้าสู่ระบบ</div>
-      </div>
-    </nav>
+  <body class="bg-black">
 
     <section id="landing">
-      <div id="banner">
-        <div class="logo">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M12 7V12L10.5 14.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </g>
-          </svg>
-        </div>
-        <label>เปิดทุกวัน เวลาทำการ 11:00 - 23:00 น.</label>
-      </div>
-      <div class="landing__container">
-        <h1 class="hero-text">Shabu PLZ</h1>
-        <h2 class="caption-text">ประสบการณ์ "กิน" ไม่รู้ลืม</h2>
-        <div class="buttons">
-          <button class="button">สั่งเมนูอาการ</button>
-          <button class="button">จองโต๊ะ</button>
+      <div class="landing__container w-[100vw]">
+        <h1 class="text-white text-8xl libre-caslon tracking-widest [text-shadow:_10px_5px_5px_rgb(0_0_0_/_40%)]">Shabu PLZ</h1>
+        <h2 class="Noto text-white text-2xl mt-5">ประสบการณ์ "กิน" ไม่รู้ลืม</h2>
+        <div class="mt-10 space-x-[100px]">
+          <button class="shadow-lg shadow-[#00000080] hover:bg-[#B78D43] transition hover:scale-105 bg-[#555960] w-[130px] h-12 text-white Noto rounded-full">สั่งเมนูอาการ</button>
+          <button class="shadow-lg shadow-[#00000080] hover:bg-[#B78D43] transition hover:scale-105 bg-[#555960] w-[130px] h-12 text-white Noto rounded-full">จองโต๊ะ</button>
         </div>
       </div>
     </section>
     <section class="section">
       <div class="grid-container">
-        <img src="./images/section1.png" width="100%" />
+        <img src="/src/img/section1.png" width="100%" />
         <div class="content">
           <div class="title">ร้านชาบูเกรดพรีเมี่ยม</div>
           <div class="box-text">
@@ -116,7 +39,7 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <!-- <section class="section">
       <div class="grid-container">
         <div class="content">
           <div class="title">รับประกันคุณภาพ</div>
@@ -126,10 +49,10 @@
           </div>
           <div class="promotion-text"></div>
         </div>
-        <img src="./images/section2.png" width="100%" />
+        <img src="/src/img/section2.png" width="100%" />
       </div>
-    </section>
-    <section class="section">
+    </section> -->
+    <!-- <section class="section">
       <div class="container">
         <div style="display: flex; justify-content: center">
           <div class="promotion-text">วัตถุดิบคุณภาพ นำเข้าจากต่างประเทศ</div>
@@ -137,7 +60,7 @@
         <div class="grid-4-container" style="margin-top: 70px">
           <div>
             <div class="box-image">
-              <img src="./images/g1.png" />
+              <img src="/src/img/g1.png" />
             </div>
             <div class="box-banner">
               <p>นำเข้าจากออสเตรเลีย</p>
@@ -145,7 +68,7 @@
           </div>
           <div>
             <div class="box-image">
-              <img src="./images/g2.png" />
+              <img src="/src/img/g2.png" />
             </div>
             <div class="box-banner">
               <p>นำเข้าจากญี่ปุ่น</p>
@@ -153,7 +76,7 @@
           </div>
           <div>
             <div class="box-image">
-              <img src="./images/g3.png" />
+              <img src="/src/img/g3.png" />
             </div>
             <div class="box-banner">
               <p>นำเข้าจากเยอรมัน</p>
@@ -161,7 +84,7 @@
           </div>
           <div>
             <div class="box-image">
-              <img src="./images/g4.png" />
+              <img src="/src/img/g4.png" />
             </div>
             <div class="box-banner">
               <p>นำเข้าจากฟาร์มไข่ไก่ชั้นนำ</p>
@@ -169,9 +92,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <footer>
+    <!-- <footer>
       <div class="contact">
         <div style="font-size: larger">ติดต่อพวกเรา</div>
         <div class="contact-detail">
@@ -293,6 +216,6 @@
         <p>Copyrights@2024</p>
         <p>All Rights Reserved by SHABU PLZ Thailand</p>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>

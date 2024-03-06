@@ -1,11 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;400&family=Libre+Caslon+Text&family=Kolker+Brush&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
 body {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
-nav#navigation {
+.libre-caslon {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.mitr-regular {
+  font-family: "Mitr", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* nav#navigation {
   background: #906F35;
   background: linear-gradient(
     180deg,
@@ -44,9 +59,9 @@ nav#navigation {
 #menu li.active {
   background-color: white;
   border-radius: 20px;
-}
+} */
 
-#banner {
+/* #banner {
   padding-block: 5px;
   background-color: whitesmoke;
   background-color: rgba(205, 202, 202, 0.5);
@@ -56,19 +71,19 @@ nav#navigation {
   display: flex;
   justify-content: center;
   gap: 10px;
-}
+} */
 
-.logo {
+/* .logo {
   width: 24px;
 }
 
 .login {
   display: flex;
   gap: 10px;
-}
+} */
 
 #landing {
-  background-image: url('./images/landing.png');
+  background-image: url('/src/img/landing.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: auto;
@@ -87,26 +102,24 @@ nav#navigation {
   justify-content: center;
 }
 
-.hero-text {
+/* .hero-text {
   color: white;
   font-size: 8em;
   margin: 0;
-}
+} */
 
-.caption-text {
-  color: white;
-  margin: 15px;
+.Noto {
   font-family: 'Noto Sans Thai';
 }
 
-.buttons {
+/* .buttons {
   display: flex;
   justify-content: center;
   padding: 10px 0;
   width: 100%;
-}
+} */
 
-.buttons .button {
+/* .buttons .button {
   text-align: center;
   background-color:#555960;
   color: white;
@@ -116,7 +129,7 @@ nav#navigation {
   text-decoration: none;
   margin: 0 10px;
   font-family: 'Noto Sans Thai';
-}
+} */
 
 .buttons .button:hover {
   background-color: darkgrey;
