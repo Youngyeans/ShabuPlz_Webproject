@@ -82,15 +82,15 @@ body {
   gap: 10px;
 } */
 
-#landing {
+/* #landing {
   background-image: url('/src/img/landing.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: auto;
   width: 100vw;
-}
+} */
 
-.landing__container {
+/* .landing__container {
   margin: auto;
   height: calc(100vh - 62px);
   width: fit-content;
@@ -100,7 +100,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 
 /* .hero-text {
   color: white;
@@ -131,37 +131,37 @@ body {
   font-family: 'Noto Sans Thai';
 } */
 
-.buttons .button:hover {
+/* .buttons .button:hover {
   background-color: darkgrey;
   transition: background-color 0.3s ease;
-}
+} */
 
-.section {
+/* .section {
   background-color: black;
   color: white;
   padding-block: 80px;
   display: flex;
   justify-content: center;
   font-family: 'Noto Sans Thai';
-}
+} */
 
-.container {
+/* .container {
   max-width: 1280px;
-}
+} */
 
-.grid-container {
+/* .grid-container {
   max-width: 1280px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-}
+} */
 
-.content {
+/* .content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-}
+} */
 
 .title {
   text-align: center;
