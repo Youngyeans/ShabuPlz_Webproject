@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="bg-black">
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch('/front_end/html/asset/navbar.html')
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('navbar-placeholder').innerHTML = html;
+          });
+    </script>
+    <script defer src="/front_end/js/navbar.js"></script>
+
+    <section class="flex justify-center w-[100vw] p-0 m-0">
+        <div class="flex mt-[80px] h-[280px]"">
+            <div class="w-[70vw] flex justify-center">
+                <div>
+                    <p class="mitr text-[#B78D43] text-[36px] text-center mt-1">เมนูอาหาร</p>
+                    <p class="noto text-[14px] text-white text-center mt-1 tracking-wide">คลิกที่อาหารเพื่อเพิ่มเข้ารายการ</p>
+                    <div class="grid grid-cols-8 mt-7 gap-3 border-b-[3px] px-2 pb-5 border-[#817B85]">
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img src="/src/img/bull 1.png">
+                                <p class="noto text-[14px] text-white mt-4 text-center">เนื้อวัว</p>
+                            </center>
+                        </div>
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img class="mt-3" src="/src/img/pig 1.png">
+                                <p class="noto text-[14px] text-white mt-5 text-center">เนื้อหมู</p>
+                            </center>
+                        </div>
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img class="mt-2" src="/src/img/chicken (2) 1.png">
+                                <p class="noto text-[14px] text-white mt-6 text-center">เนื้อไก่</p>
+                            </center>
+                        </div>
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img class="mt-3" src="/src/img/fish 1.png">
+                                <p class="noto text-[14px] text-white mt-6 text-center">อาหารทะเล</p>
+                            </center>
+                        </div>
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img class="mt-2" src="/src/img/lettuce 1.png">
+                                <p class="noto text-[14px] text-white mt-5 text-center">ผัก</p>
+                            </center>
+                        </div>
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img class="mt-1" src="/src/img/sausage 1.png">
+                                <p class="noto text-[14px] text-white mt-5 text-center">อื่นๆ</p>
+                            </center>
+                        </div>
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img class="" src="/src/img/fried-potatoes 1.png">
+                                <p class="noto text-[14px] text-white mt-5 text-center">ของทานเล่น</p>
+                            </center>
+                        </div>
+                        <div class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <center>
+                                <img class="mt-2" src="/src/img/ice-pop 1.png">
+                                <p class="noto text-[14px] text-white mt-6 text-center">ของหวาน</p>
+                            </center>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="w-[30vw]flex justify-center p-5">
+                <div class="bg-[#D7D4CF] w-[400px] h-[700px] rounded-lg flex justify-center hover:scale-105 transition">
+                    <div class="w-[100%] p-5">
+                        <p class="mitr text-[24px] mt-6 text-[#B78D43] text-center">รายการอาหาร</p>
+                        <div class="flex mt-3 space-x-20 border-b-[3px] pb-8 border-[#817B85] p-2">
+                            <input class="mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[144px] shadow-[#00000033] rounded-lg text-[#B78D43] py-2" value="" placeholder="ชื่อผู้จอง">
+                            <div class="flex space-x-5">
+                                <p class="mitr text-[16px] text-[#B78D43] flex items-center ">โต๊ะ</p>
+                                <input value="" placeholder="เลข" class="mitr text-center text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[48px] shadow-[#00000033] rounded-lg py-2">
+                            </div>
+                        </div>
+                        <div class="h-[350px] mt-7 overflow-auto pr-5">
+                            <div class="space-x-5 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="flex items-center">
+                                    <p class="mitr text-[16px]">ชื่ออาหาร</p>
+                                    <div class="ml-10">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mt-5">
+                            <button class=" hover:scale-105 transition hover:bg-[#B78D43] text-center text-[20px] noto font-semibold bg-[#555960] text-white py-3 px-12 rounded-full">สั่งอาหาร</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
