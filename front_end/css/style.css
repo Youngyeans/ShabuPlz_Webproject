@@ -34,7 +34,7 @@ body {
     "wdth" 100;
 }
 
-/* ::-webkit-scrollbar{
+::-webkit-scrollbar{
   width:16px;
   backdrop-filter: blur(5px);
 }
@@ -46,4 +46,4 @@ body {
 ::-webkit-scrollbar-thumb{
   background-color: #B78D43;
   background-clip: content-box;
-} */
+}
