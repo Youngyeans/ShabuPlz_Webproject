@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,17 @@
     <!-- css -->
     <link rel="stylesheet" href="../css/style.css" />
 </head>
+
 <body class="bg-black">
     <div id="navbar-placeholder"></div>
     <script>
-        fetch('/front_end/html/asset/navbar.html')
-          .then(response => response.text())
-          .then(html => {
-            document.getElementById('navbar-placeholder').innerHTML = html;
-          });
+        fetch('asset/navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+            });
     </script>
-    <script defer src="/front_end/js/navbar.js"></script>
+    <script defer src="../js/navbar.js"></script>
 
     <section class="flex justify-center w-[100vw] p-0 m-0">
         <div class="flex mt-[80px] h-[280px]">
@@ -28,61 +30,70 @@
                     <!-- head -->
                     <div class="">
                         <p class="mitr text-[#B78D43] text-[36px] text-center mt-1">เมนูอาหาร</p>
-                        <p class="noto text-[14px] text-white text-center mt-1 tracking-wide">คลิกที่อาหารเพื่อเพิ่มเข้ารายการ</p>
+                        <p class="noto text-[14px] text-white text-center mt-1 tracking-wide">
+                            คลิกที่อาหารเพื่อเพิ่มเข้ารายการ</p>
                         <!-- categories -->
                         <div class="grid grid-cols-8 mt-7 gap-3 border-b-[3px] px-2 pb-5 border-[#817B85] mx-36">
-                            <button id="1" onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="1" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img src="/src/img/bull 1.png">
+                                    <img src="../../src/img/bull 1.png">
                                     <p class="noto text-[14px] text-white mt-4 text-center">เนื้อวัว</p>
                                 </center>
                             </button>
-                            <button id="2"  onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="2" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-3" src="/src/img/pig 1.png">
+                                    <img class="mt-3" src="../../src/img/pig 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">เนื้อหมู</p>
                                 </center>
                             </button>
-                            <button id="3"  onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="3" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-2" src="/src/img/chicken (2) 1.png">
+                                    <img class="mt-2" src="../../src/img/chicken (2) 1.png">
                                     <p class="noto text-[14px] text-white mt-6 text-center">เนื้อไก่</p>
                                 </center>
                             </button>
-                            <button id="4"  onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="4" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-3" src="/src/img/fish 1.png">
+                                    <img class="mt-3" src="../../src/img/fish 1.png">
                                     <p class="noto text-[14px] text-white mt-6 text-center">อาหารทะเล</p>
                                 </center>
                             </button>
-                            <button id="5"  onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="5" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-2" src="/src/img/lettuce 1.png">
+                                    <img class="mt-2" src="../../src/img/lettuce 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">ผัก</p>
                                 </center>
                             </button>
-                            <button id="6"  onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="6" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-1" src="/src/img/sausage 1.png">
+                                    <img class="mt-1" src="../../src/img/sausage 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">อื่นๆ</p>
                                 </center>
                             </button>
-                            <button id="7" onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="7" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="" src="/src/img/fried-potatoes 1.png">
+                                    <img class="" src="../../src/img/fried-potatoes 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">ของทานเล่น</p>
                                 </center>
                             </button>
-                            <button id="8" onclick="move(this.id)" class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
+                            <button id="8" onclick="move(this.id)"
+                                class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-2" src="/src/img/ice-pop 1.png">
+                                    <img class="mt-2" src="../../src/img/ice-pop 1.png">
                                     <p class="noto text-[14px] text-white mt-6 text-center">ของหวาน</p>
                                 </center>
                             </button>
                         </div>
                     </div>
                     <!-- list menu -->
-                    <div id="menu"  class="py-5 mt-10 pr-8 mx-16 h-[500px] overflow-auto rounded-2xl space-y-20">
+                    <div id="menu" class="py-5 mt-10 pr-8 mx-16 h-[500px] overflow-auto rounded-2xl space-y-20">
                         <!-- แต่ละ catrgory -->
                         <div id="section1" class="bg-[#817B8538] p-5 px-14 rounded-2xl">
                             <p class="mitr text-[24px] text-[#B0A9B5]">เนื้อวัว</p>
@@ -93,19 +104,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -117,19 +133,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="hidden flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -149,19 +170,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -182,19 +208,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -215,19 +246,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -248,19 +284,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -281,19 +322,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -314,19 +360,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -347,19 +398,24 @@
                                     <div class="mt-2 p-5">
                                         <div class="relative">
                                             <div class="hidden absolute bg-[#6562628C] w-[180px] h-[195px]"></div>
-                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                            <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center"
+                                                style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                         </div>
                                         <!-- <div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div> -->
                                         <p class=" mitr text-[20px] text-white mt-4 w-[100%]">วากิว</p>
 
                                         <!-- บรรทัดล่าง อาหารยังไม่หมด -->
                                         <div class="flex space-x-3 items-center justify-center mt-2">
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">-</button>
                                             <div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">
-                                                <input class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">
+                                                <input
+                                                    class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white"
+                                                    value="0">
                                                 <p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>
                                             </div>
-                                            <button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
+                                            <button
+                                                class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]">+</button>
                                         </div>
                                         <!-- บรรทัดล่าง หมด -->
                                         <p class="hidden  mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>
@@ -375,14 +431,18 @@
 
             <!-- ฝั่งรายการอาหาร -->
             <div class="w-[30vw]flex justify-center pt-5">
-                <div class="bg-[#D7D4CF] w-[440px] h-[760px] rounded-2xl flex justify-center hover:scale-105 transition">
+                <div
+                    class="bg-[#D7D4CF] w-[440px] h-[760px] rounded-2xl flex justify-center hover:scale-105 transition">
                     <div class="w-[100%] p-3 pt-2">
                         <p class="mitr text-[28px] mt-6 text-[#B78D43] text-center">รายการอาหาร</p>
                         <div class="flex mt-3 border-b-[3px] pb-8 border-[#817B85] p-2 ml-2">
-                            <input class="w-[50%] mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[144px] shadow-[#00000033] rounded-lg text-[#B78D43] py-2" value="" placeholder="ชื่อผู้จอง">
+                            <input
+                                class="w-[50%] mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[144px] shadow-[#00000033] rounded-lg text-[#B78D43] py-2"
+                                value="" placeholder="ชื่อผู้จอง">
                             <div class="w-[50%] flex space-x-5 justify-end pr-2">
                                 <p class="mitr text-[16px] text-[#B78D43] flex items-center ">โต๊ะ</p>
-                                <input value="" placeholder="เลข" class="mitr text-center text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[48px] shadow-[#00000033] rounded-lg py-2">
+                                <input value="" placeholder="เลข"
+                                    class="mitr text-center text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[48px] shadow-[#00000033] rounded-lg py-2">
                             </div>
                         </div>
 
@@ -390,16 +450,20 @@
                         <div class="h-[460px] mt-7 overflow-auto space-y-3 py-2 pr-3">
 
                             <!-- ให้มัน generate กล่อง -->
-                            <div class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                            <div
+                                class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
                                 <!-- รูปภาพแก้ไขที่ style background-image -->
-                                <div class="bg-center bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="bg-center bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md"
+                                    style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                 <div class="flex items-center">
                                     <!-- ใส่ชื่อ -->
                                     <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
                                     <!-- แก้ไขจำนวนอาหาร -->
                                     <div class="ml-1">
                                         <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
-                                        <input class="mitr text-[16px] bg-transparent w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <input
+                                            class="mitr text-[16px] bg-transparent w-7 text-center border-b-[2px] border-[#817B85]"
+                                            value="0">
                                         <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
                                     </div>
                                     <!-- ลบรายการออก -->
@@ -414,7 +478,8 @@
 
 
                         <div class="flex justify-center mt-5">
-                            <button class="hover:scale-105 transition hover:bg-[#B78D43] text-center text-[20px] noto font-semibold bg-[#555960] text-white py-3 px-12 rounded-full">สั่งอาหาร</button>
+                            <button
+                                class="hover:scale-105 transition hover:bg-[#B78D43] text-center text-[20px] noto font-semibold bg-[#555960] text-white py-3 px-12 rounded-full">สั่งอาหาร</button>
                         </div>
                     </div>
                 </div>
@@ -442,4 +507,5 @@
         }
     </script>
 </body>
+
 </html>
