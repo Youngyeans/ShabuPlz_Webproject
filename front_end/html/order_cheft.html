@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Order[C]</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="bg-black">
+    <div>
+          <div class="top grid grid-cols-2 p-5">
+            <div class="bg-black p-2 mitr text-[42px] text-[#B78D43]">ออเดอร์ลูกค้า</div>
+            <div class="bg-black flex mt-3 justify-end border-b-[3px] pb-8 border-[#817B85] p-2 ml-2">
+                <div class="flex space-x-5 pr-2">
+                    <p class="mitr text-[16px] text-[#B78D43] flex items-center text-[32px]">โต๊ะ</p>
+                    <input value="" placeholder="เลข" class="mitr text-center text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[48px] shadow-[#00000033] rounded-lg py-2">
+                </div>
+            </div>
+        </div>
+        <div class="low flex">
+            <div class="left bg-[#D7D4CF] overflow-auto">
+                <!-- กล่องให้ใส่ -->
+                <div class="h-[460px] mt-7 overflow-auto space-y-3 py-2 pr-3 ">
+
+                    <!-- ให้มัน generate กล่อง -->
+                    <div class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                        <div class="grid grid-cols-2 justifly-end w-[100%]">
+                            <div class="mitr text-[20px] w-[150px] pt-3" >โต้ะ 1</div>
+                            <button class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 mx-20">มีออเดอร์</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right w-[70%] bg-pink-500 overflow-auto">
+                <div class="bg-[#817B8538] grid grid-cols-3">
+                    <div class="bg-[#D7D4CF] rounded-2xl mt-2 mx-10">
+                        <center>
+                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                            <p class="mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</p>
+                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
+                            <button class="bg-[#B78D43] text-white px-4 py-2 rounded-3xl mt-2 mx-20"> กำลังจัดเตรียม</button>
+                        </center>
+                    </div>
+                    <div class="bg-[#D7D4CF] rounded-2xl mt-2 mx-10">
+                        <center>
+                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                            <p class="mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</p>
+                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
+                            <button class="bg-[#7A6464] text-white px-4 py-2 rounded-3xl mt-2 mx-20"> ยังไม่ได้จัดเตรียม</button>
+                        </center>
+                    </div>
+                    <div class="bg-[#D7D4CF] rounded-2xl mt-2 mx-10">
+                        <center>
+                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                            <p class="mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</p>
+                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
+                            <button class="bg-[#61A12E] text-white px-4 py-2 rounded-3xl mt-2 mx-20"> จัดเตรียมสำเร็จ</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
