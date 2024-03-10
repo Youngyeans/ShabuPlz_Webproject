@@ -4,6 +4,48 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap');
 
+        .custom-bg-color {
+            background-color: rgba(129, 123, 133, 0.22);
+        }
+        .input-container {
+            position: relative;
+            width: 100%;
+        }
+        .input-container input {
+            padding-left: 20px;
+            padding-top: 40px;
+            font-size: large;
+            font-family: 'Noto Sans Thai';
+        }
+        .input-label {
+            position: absolute;
+            padding-bottom: 50px;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none; /* ไม่ให้ส่งอิเวนต์เมื่อคลิกที่ label */
+            color: #718096;
+            font-size: small;
+            font-family: 'Noto Sans Thai';
+        }
+        /* .custom-button {
+            background-color: #555960;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Noto Sans Thai';
+        } */
+        .custom-button:hover {
+            background-color: rgb(185, 182, 182);
+        }
+        .custom-a {
+            padding-left: 280px;
+            padding-bottom: 10px;
+            font-family: 'Noto Sans Thai';
+        }
+
 body {
   margin: 0px;
   padding: 0px;
