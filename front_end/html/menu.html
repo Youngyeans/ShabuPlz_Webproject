@@ -79,32 +79,125 @@
                     
                 </div>
             </div>
-            <div class="w-[30vw]flex justify-center p-5">
-                <div class="bg-[#D7D4CF] w-[400px] h-[700px] rounded-lg flex justify-center hover:scale-105 transition">
-                    <div class="w-[100%] p-5">
-                        <p class="mitr text-[24px] mt-6 text-[#B78D43] text-center">รายการอาหาร</p>
-                        <div class="flex mt-3 space-x-20 border-b-[3px] pb-8 border-[#817B85] p-2">
-                            <input class="mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[144px] shadow-[#00000033] rounded-lg text-[#B78D43] py-2" value="" placeholder="ชื่อผู้จอง">
-                            <div class="flex space-x-5">
+            <div class="w-[30vw]flex justify-center pt-5">
+                <div class="bg-[#D7D4CF] w-[440px] h-[760px] rounded-2xl flex justify-center hover:scale-105 transition">
+                    <div class="w-[100%] p-3 pt-2">
+                        <p class="mitr text-[28px] mt-6 text-[#B78D43] text-center">รายการอาหาร</p>
+                        <div class="flex mt-3 border-b-[3px] pb-8 border-[#817B85] p-2 ml-2">
+                            <input class="w-[50%] mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[144px] shadow-[#00000033] rounded-lg text-[#B78D43] py-2" value="" placeholder="ชื่อผู้จอง">
+                            <div class="w-[50%] flex space-x-5 justify-end pr-2">
                                 <p class="mitr text-[16px] text-[#B78D43] flex items-center ">โต๊ะ</p>
                                 <input value="" placeholder="เลข" class="mitr text-center text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[48px] shadow-[#00000033] rounded-lg py-2">
                             </div>
                         </div>
-                        <div class="h-[350px] mt-7 overflow-auto pr-5">
-                            <div class="space-x-5 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+
+                        <!-- กล่องให้ใส่ -->
+                        <div class="h-[460px] mt-7 overflow-auto space-y-3 py-2 pr-3">
+
+                            <!-- ให้มัน generate กล่อง -->
+                            <div class="space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <!-- รูปภาพแก้ไขที่ style background-image -->
                                 <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
                                 <div class="flex items-center">
-                                    <p class="mitr text-[16px]">ชื่ออาหาร</p>
-                                    <div class="ml-10">
-                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full">-</button>
-                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="">
-                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full">+</button>
+                                    <!-- ใส่ชื่อ -->
+                                    <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
+                                    <div class="ml-1">
+                                        <!-- แก้ไขจำนวนอาหาร -->
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
                                     </div>
+                                    <!-- ลบรายการออก -->
+                                    <i class="hover:text-[#C74022] ml-4 text-[24px] fa-regular fa-trash-can"></i>
                                 </div>
                             </div>
+                            <!-- อันนี้ 1 กล่อง -->
+
+
+                            <!-- ไอ้ข้างล่าง ใส่มาเพื่อเทส scroll bar ถ้าทำที่ generate เสด ก็ลบออกเลย -->
+                            
+
+                            <!-- <div class="space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="flex items-center">
+                                    <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
+                                    <div class="ml-1">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
+                                    </div>
+                                    <i class="hover:text-[#C74022] ml-4 text-[24px] fa-regular fa-trash-can"></i>
+                                </div>
+                            </div>
+                            <div class="space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="flex items-center">
+                                    <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
+                                    <div class="ml-1">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
+                                    </div>
+                                    <i class="hover:text-[#C74022] ml-4 text-[24px] fa-regular fa-trash-can"></i>
+                                </div>
+                            </div>
+                            <div class="space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="flex items-center">
+                                    <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
+                                    <div class="ml-1">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
+                                    </div>
+                                    <i class="hover:text-[#C74022] ml-4 text-[24px] fa-regular fa-trash-can"></i>
+                                </div>
+                            </div>
+                            <div class="space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="flex items-center">
+                                    <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
+                                    <div class="ml-1">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
+                                    </div>
+                                    <i class="hover:text-[#C74022] ml-4 text-[24px] fa-regular fa-trash-can"></i>
+                                </div>
+                            </div>
+                            <div class="space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="flex items-center">
+                                    <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
+                                    <div class="ml-1">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
+                                    </div>
+                                    <i class="hover:text-[#C74022] ml-4 text-[24px] fa-regular fa-trash-can"></i>
+                                </div>
+                            </div>
+                            <div class="space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                                <div class="bg-cover bg-no-repeat w-[60px] h-[40px] rounded-md" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="flex items-center">
+                                    <p class="mitr text-[16px] w-[150px]">ชื่ออาหาร</p>
+                                    <div class="ml-1">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">-</button>
+                                        <input class="mitr text-[16px] bg-[#D9D9D9] w-7 text-center border-b-[2px] border-[#817B85]" value="0">
+                                        <button class="w-6 h-6 bg-[#B78D43] rounded-full hover:bg-[#817B85]">+</button>
+                                    </div>
+                                    <i class="hover:text-[#C74022] ml-4 text-[24px] fa-regular fa-trash-can"></i>
+                                </div>
+                            </div> -->
+                            
+
+
+
                         </div>
+
+
                         <div class="flex justify-center mt-5">
-                            <button class=" hover:scale-105 transition hover:bg-[#B78D43] text-center text-[20px] noto font-semibold bg-[#555960] text-white py-3 px-12 rounded-full">สั่งอาหาร</button>
+                            <button class="hover:scale-105 transition hover:bg-[#B78D43] text-center text-[20px] noto font-semibold bg-[#555960] text-white py-3 px-12 rounded-full">สั่งอาหาร</button>
                         </div>
                     </div>
                 </div>

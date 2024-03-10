@@ -36,14 +36,16 @@ body {
 
 ::-webkit-scrollbar{
   width:16px;
-  backdrop-filter: blur(5px);
 }
 
 ::-webkit-scrollbar-track{
-  background-color: #484546;
+  background-color: #7A6464;
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color: #B78D43;
+  background-color: #ACABAB;
   background-clip: content-box;
+  box-shadow: 0px 5px 5px rgba(44, 44, 44, 0.295);
 }
+
+
