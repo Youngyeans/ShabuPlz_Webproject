@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;400&family=Libre+Caslon+Text&family=Kolker+Brush&display=swap');
+        .custom-bg-color {
+            background-color: rgba(129, 123, 133, 0.22);
+        }
+        h2 {
+            color: #B78D43;
+            font-family: 'Mitr';
+        }
+        h5 {
+            font-family: 'Noto Sans Thai';
+        }
+        .input-container {
+            position: relative;
+            width: 100%;
+        }
+        .input-container input {
+            padding-left: 10px;
+            padding-top: 40px;
+            font-size: large;
+            font-family: 'Noto Sans Thai';
+        }
+        .input-label {
+            position: absolute;
+            padding-bottom: 50px;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none; /* ไม่ให้ส่งอิเวนต์เมื่อคลิกที่ label */
+            color: #718096;
+            font-size: small;
+            font-family: 'Noto Sans Thai';
+        }
+        .custom-button {
+            background-color: #555960;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Noto Sans Thai';
+        }
+        .custom-button:hover {
+            background-color: rgb(185, 182, 182);
+        }
+        .custom-a {
+            padding-left: 280px;
+            padding-bottom: 10px;
+            font-family: 'Noto Sans Thai';
+        }
+    </style>
+</head>
+<body class="custom-bg bg-black flex flex-col justify-center items-center h-screen">
+    <div class="custom-bg-color ml-8 p-8 rounded-lg shadow-md max-w-md w-full flex flex-col items-center">
+        <h2 class="text-5xl mb-4">เข้าสู่ระบบ</h2>
+        <h5 class="text-white mb-4">เฉพาะพนักงานในร้านเท่านั้น</h5>
+        <form class="w-full">
+            <div class="mb-4 input-container">
+                <label for="username" class="input-label">ชื่อผู้ใช้</label>
+                <input type="text" id="username" name="username" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="ชื่อผู้ใช้">
+            </div>
+            <div class="mb-4 input-container">
+                <label for="password" class="input-label">รหัสผ่าน</label>
+                <input type="password" id="password" name="password" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="รหัสผ่าน">
+            </div>
+            <div class="custom-a text-white underline">
+                <a href="" target="_blank" rel="noopener noreferrer">จำรหัสไม่ได้ ?</a></p>
+            </div>
+            <div class="flex justify-center">
+            <button type="submit" class="custom-button">เข้าสู่ระบบ</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
