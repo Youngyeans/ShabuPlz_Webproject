@@ -13,10 +13,10 @@
     $order_id = $_POST['orderId'];
     $status = $_POST['status'];
 
-    if($status == 'non-active'){
+    if($status == 'process'){
         $sql = "UPDATE orders SET status = 'process' WHERE order_id = $order_id";
         $result = $db->exec($sql);
-    } else if($status == 'process'){
+    } else if($status == 'active'){
         $sql = "UPDATE orders SET status = 'active' WHERE order_id = $order_id";
         $result = $db->exec($sql);
     }
