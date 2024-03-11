@@ -4,37 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Order[C]</title>
+    <title>Order[Cus]</title>
     <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="bg-black">
     <div id="navbar-placeholder"></div>
     <script>
-        fetch('/front_end/html/asset/navbar.html')
+        fetch('asset/navbar.html')
           .then(response => response.text())
           .then(html => {
             document.getElementById('navbar-placeholder').innerHTML = html;
           });
     </script>
-    <script defer src="/front_end/js/navbar.js"></script>
+    <script defer src="../js/navbar.js"></script>
 
     <div class="pt-20">
         <div class="top flex p-6 px-24">
             <div class="w-[50%] p-2 mitr text-[42px] text-[#B78D43]">รายการอาหารที่สั่ง</div>
             <div class="flex w-[50%] justify-end space-x-10">
-                <div class=" flex items-center space-x-5">
-                    <p class="mitr text-[20px] text-[#B78D43]">สถานะ</p>
-                    <select id="example-select" name="example-select" class="mitr bg-[#D9D9D9] mt-1  p-2 border rounded-md">
-                        <option>ทั้งหมด</option>
-                        <option>กำลังจัดเตรียม</option>
-                        <option>เสิร์ฟสำเร็จ</option>
-                        <option>สั่งแล้ว</option>
-                    </select>
-                </div>
-
                 <div class=" flex justify-end items-center p-2 ml-2 space-x-5 pr-2">
+                    <form id="table-form" action="../../back_end/display_order.php" method="POST">
                         <p class="mitr text-[#B78D43] flex items-center text-[20px]">โต๊ะ</p>
-                        <select id="example-select" name="example-select" class="mitr bg-[#D9D9D9] mt-1  p-2 border rounded-md">
+                        <select id="table-select" name="table-select" class="mitr bg-[#D9D9D9] mt-1 p-2 border rounded-md">
                             <option value="0">เลข</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -49,73 +40,43 @@
                             <option value="11">11</option>
                             <option value="12">12</option>
                         </select>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="flex justify-center">
             <div class="right w-[80%] overflow-auto rounded-2xl bg-[#817B8538] flex justify-center py-9 h-[calc(100vh-250px)]">
                 <!-- section col 5 -->
-                <div class="grid grid-cols-5 gap-9">
-                    <!-- cแต่ละกล่อง -->
-                    <div class="bg-[#D7D4CF] rounded-2xl p-6 h-[335px] transition hover:scale-105">
-                        <center>
-                            <!-- รูปเปลี่ยนที่ url ใน bg-img -->
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                            <!-- ชื่ออาหาร -->
-                            <p class="mitr text-[20px] mt-4">ไอศกรีมรสช็อคโกแลต</p>
-                            <!-- จำนวน -->
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <!-- เมนูนี้กำลังจัดเตรียม -->
-                            <div class="bg-[#C79922] text-white px-4 py-2 rounded-lg mt-4 w-[75%] noto"> กำลังจัดเตรียม</div>
-                        </center>
-                    </div>
-                    <!-- กล่อง -->
-
-                    <div class="bg-[#D7D4CF] rounded-2xl p-6 h-[335px] transition hover:scale-105">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px] mt-4">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <!-- เมนูนี้ยังไม่ได้เตรียม -->
-                            <div class="bg-[#C74022] text-white px-4 py-2 rounded-lg mt-4 w-[75%] noto">ยังไม่ได้จัดเตรียม</div>
-                        </center>
-                    </div>
-                    <div class="bg-[#D7D4CF] rounded-2xl p-6 h-[335px] transition hover:scale-105">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px] mt-4">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <!-- เมนูนี้เตรียมสำเร็จ -->
-                            <div class="bg-[#61A12E] text-white px-4 py-2 rounded-lg mt-4 w-[75%] noto">จัดเตรียมสำเร็จ</div>
-                        </center>
-                    </div>
-                    <div class="bg-[#D7D4CF] rounded-2xl p-6 h-[335px] transition hover:scale-105">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px] mt-4">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <div class="bg-[#C79922] text-white px-4 py-2 rounded-lg mt-4 w-[75%] noto"> กำลังจัดเตรียม</div>
-                        </center>
-                    </div>
-                    <div class="bg-[#D7D4CF] rounded-2xl p-6 h-[335px] transition hover:scale-105">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px] mt-4">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <div class="bg-[#C74022] text-white px-4 py-2 rounded-lg mt-4 w-[75%] noto">ยังไม่ได้จัดเตรียม</div>
-                        </center>
-                    </div>
-                    <div class="bg-[#D7D4CF] rounded-2xl p-6 h-[335px] transition hover:scale-105">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px] mt-4">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <div class="bg-[#61A12E] text-white px-4 py-2 rounded-lg mt-4 w-[75%] noto">จัดเตรียมสำเร็จ</div>
-                        </center>
-                    </div>
+                <div class="grid grid-cols-5 gap-9" id="order-container">
+                    <!-- ข้อมูลรายการอาหารจะถูกแสดงที่นี่ -->
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // เมื่อมีการเลือกโต๊ะ
+            document.getElementById("table-select").addEventListener("change", function() {
+                // ดึงค่าที่ถูกเลือกจากเมนูตัวเลือกโต๊ะ
+                var selectedTable = document.getElementById("table-select").value;
+                // สร้าง XMLHttpRequest object
+                var xhttp = new XMLHttpRequest();
+                // กำหนดฟังก์ชันที่จะใช้ในการจัดการข้อมูลที่ได้รับกลับมา
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // แสดงข้อมูลรายการอาหารที่ได้รับกลับมาใน div order-container
+                        document.getElementById("order-container").innerHTML = this.responseText;
+                    }
+                };
+                // กำหนด method และ url ที่จะส่งข้อมูลไปยัง
+                xhttp.open("POST", "../../back_end/displayorder_customer.php", true);
+                // กำหนด header สำหรับการส่งข้อมูลในรูปแบบ x-www-form-urlencoded
+                xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                // ส่งข้อมูลไปยังเซิร์ฟเวอร์
+                xhttp.send("table-select=" + encodeURIComponent(selectedTable));
+            });
+        });
+    </script>
 </body>
 </html>
+

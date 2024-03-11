@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,21 @@
     <title>Order[C]</title>
     <link rel="stylesheet" href="../css/style.css" />
 </head>
+
 <body class="bg-black">
     <!-- navbar -->
-    <nav class="fixed z-50 h-[60px] bg-gradient-to-b from-[#906F35] to-[#DCA94F] mitr flex justify-between items-center w-[100%] mx-auto">
-        <div class="pl-10 kolker-brush-regular text-[42px] text-white [text-shadow:_2px_3px_3px_rgb(0_0_0_/_40%)]">SHABU <span class="text-black">PLZ</span></div>
-        <div class="top-[-500px] nav-links md:static absolute bg-white md:bg-transparent md:min-h-fit min-h-[30vh] left-0 md:w-auto w-full flex items-center px-5">
+    <nav
+        class="fixed z-50 h-[60px] bg-gradient-to-b from-[#906F35] to-[#DCA94F] mitr flex justify-between items-center w-[100%] mx-auto">
+        <div class="pl-10 kolker-brush-regular text-[42px] text-white [text-shadow:_2px_3px_3px_rgb(0_0_0_/_40%)]">SHABU
+            <span class="text-black">PLZ</span>
+        </div>
+        <div
+            class="top-[-500px] nav-links md:static absolute bg-white md:bg-transparent md:min-h-fit min-h-[30vh] left-0 md:w-auto w-full flex items-center px-5">
             <ul class="flex md:flex-row flex-col md:items-center md:space-x-10 md:md:space-y-0 space-y-5">
-                <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a href="order_chef.html">รับออเดอร์</a></li>
-                <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a href="#">แก้ไขเมนู</a></li>
+                <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a
+                        href="order_chef.html">รับออเดอร์</a></li>
+                <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a
+                        href="#">แก้ไขเมนู</a></li>
             </ul>
         </div>
         <div class="flex items-center space-x-5">
@@ -25,7 +33,8 @@
                 </a>
             </div>
             <div class="pr-5 md:hidden">
-                <img onclick="onToggleMenu()" class="menu w-[25px] cursor-pointer md:hidden " src="../../src/img/menu.png">
+                <img onclick="onToggleMenu()" class="menu w-[25px] cursor-pointer md:hidden "
+                    src="../../src/img/menu.png">
             </div>
         </div>
     </nav>
@@ -37,7 +46,7 @@
                 <div onclick="show" class="flex space-x-5 pr-2">
                     <p class="mitr text-[16px] text-[#B78D43] flex items-center text-[32px]">โต๊ะ</p>
                     <!-- ตั้งต้นเป็น เลข 1 ถ้ากดโต๊ะอื่นก็จะเปลี่ยนโต๊ะ -->
-                    <div id="table" class="mitr bg-[#D9D9D9] w-16 mt-1 p-2 rounded-md text-center">1</div>
+                    <div id="table" class="mitr bg-[#D9D9D9] w-16 mt-1 p-2 rounded-md text-center">0</div>
                 </div>
             </div>
         </div>
@@ -45,104 +54,106 @@
             <div class="left w-[30%] overflow-auto px-5">
                 <!-- กล่องให้ใส่ -->
                 <div class="h-[70vh] mx-5 rounded-xl bg-[#D7D4CF] overflow-auto space-y-3 p-4 curser">
-                    <div class="p-2 h-[100%] overflow-auto pr-4 space-y-3">
+                    <div id="table-container" class="p-2 h-[100%] overflow-auto pr-4 space-y-3">
                         <!-- ให้มัน generate กล่อง -->
-                        <div id="1" onclick="show(this)" class="hover:bg-[#7A6464] cursor-pointer m-1 hover: hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
-                            <div class="grid grid-cols-2 w-[100%] px-4">
-                                <div class="mitr text-[20px] pt-3" >โต๊ะ 1</div>
-                                <div class="flex justify-end">
-                                    <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">มีออเดอร์</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 1 กล่อง -->
-                        <!-- เอามาเทสให้ดูว่ามันกดแล้วเปลี่ยน โต๊ะ -->
-                        <div id="2" onclick="show(this)" class="hover:bg-[#7A6464] cursor-pointer m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
-                            <div class="grid grid-cols-2 w-[100%] px-4">
-                                <div class="mitr text-[20px] pt-3" >โต๊ะ 2</div>
-                                <div class="flex justify-end">
-                                    <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">มีออเดอร์</div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
             <div class="right w-[70%]">
                 <div class="h-[70vh] bg-[#817B8538] rounded-xl p-10 flex justify-center">
                     <!-- cแต่ละกล่อง -->
-                    <div class="overflow-auto grid grid-cols-4 h-[100%] pr-4 gap-10 w-[95%] p-2">
+                    <div id="order-container" class="overflow-auto grid grid-cols-4 h-[100%] pr-4 gap-10 w-[95%] p-2">
                         <!-- cแต่ละกล่อง -->
-                        <div class="bg-[#D7D4CF] rounded-2xl p-6 h-[57%] transition hover:scale-105">
-                            <center>
-                                <!-- รูปเปลี่ยนที่ url ใน bg-img -->
-                                <div class="w-[100%] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                                <!-- ชื่ออาหาร -->
-                                <p class="mitr text-[20px] mt-4">ไอศกรีมรสช็อคโกแลต</p>
-                                <!-- จำนวน -->
-                                <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                                <!-- เมนูนี้กำลังจัดเตรียม -->
-                                <button onclick="change(this)" class="bg-[#7A6464] text-white px-4 py-2 rounded-full mt-4 w-[75%] noto hover:scale-105 hover:bg-[#1C1B1D]">ยังไม่ได้จัดเตรียม</button>
-                            </center>
-                        </div>
-                        <!-- กล่อง -->
-                        
                     </div>
-                    <!-- กล่อง -->
-                    <!-- <div class="bg-[#D7D4CF] rounded-2xl mt-2 mx-10">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center" style="background-image: url('../../src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <button class="bg-[#B78D43] text-white px-4 py-2 rounded-3xl mt-2 mx-20"> กำลังจัดเตรียม</button>
-                        </center>
-                    </div>
-                    <div class="bg-[#D7D4CF] rounded-2xl mt-2 mx-10">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center" style="background-image: url('../../src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <button class="bg-[#7A6464] text-white px-4 py-2 rounded-3xl mt-2 mx-20"> ยังไม่ได้จัดเตรียม</button>
-                        </center>
-                    </div>
-                    <div class="bg-[#D7D4CF] rounded-2xl mt-2 mx-10">
-                        <center>
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center" style="background-image: url('../../src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
-                            <button class="bg-[#61A12E] text-white px-4 py-2 rounded-3xl mt-2 mx-20"> จัดเตรียมสำเร็จ</button>
-                        </center>
-                    </div> -->
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function change(btn){
-            if(btn.innerText == "ยังไม่ได้จัดเตรียม"){
+        function change(btn) {
+            var orderId = btn.id;
+            if (btn.innerText == "ยังไม่ได้จัดเตรียม") {
                 if (confirm("พร้อมจัดเตรียมเมนูนี้ใช่มั้ย")) {
+                    sendOrderStatus(orderId, 'process');
                     btn.innerText = "กำลังจัดเตรียม";
                     btn.classList.remove("bg-[#7A6464]");
                     btn.classList.add("bg-[#B78D43]");
-                  }
+                }
             }
-            else if(btn.innerText == "กำลังจัดเตรียม"){
+            else if (btn.innerText == "กำลังจัดเตรียม") {
                 if (confirm("พร้อมเสิร์ฟใช่หรือไม่")) {
+                    sendOrderStatus(orderId, 'active');
                     btn.innerText = "จัดเตรียมสำเร็จ";
                     btn.disabled = true;
                     btn.classList.remove("hover:scale-105");
                     btn.classList.remove("hover:bg-[#1C1B1D]");
-                    btn.classList.remove("bg-[#7A6464]");
+                    btn.classList.remove("bg-[#B78D43]");
                     btn.classList.add("bg-[#61A12E]");
-                  }
+                }
             }
         }
 
-        function show(table){
+        function sendOrderStatus(orderId, status) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText); // สามารถแสดงข้อความตอบกลับจากเซิร์ฟเวอร์ได้
+                    }
+                };
+                xhttp.open("POST", "../../back_end/updatestatus_chef.php", true); // เปลี่ยนเส้นทางไปยังไฟล์ PHP ที่จะดำเนินการอัปเดตฐานข้อมูล
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("orderId=" + orderId + "&status=" + status);
+            }
+
+        function show(table) {
             let num = document.getElementById("table");
             num.innerHTML = table.id;
         }
+
+        function sendTableNumber(tableNumber) {
+            var xhttp = new XMLHttpRequest(); // สร้าง XMLHttpRequest object
+
+            // กำหนด callback function เมื่อสถานะการเปลี่ยนแปลง
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // การทำงานหลังจากได้รับคำตอบจากเซิร์ฟเวอร์
+                    document.getElementById("order-container").innerHTML = this.responseText;
+                }
+            };
+
+            // เตรียมสร้างคำร้องขอ POST ไปยังไฟล์ PHP และส่งค่าเลขโต๊ะไปด้วย
+            xhttp.open("POST", "../../back_end/showorder_chef.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("tableNumber=" + tableNumber);
+        }
+
+        // ใช้ Fetch API เพื่อเรียกใช้งานไฟล์ PHP ที่เราเขียนขึ้นเพื่อดึงข้อมูล table_id
+        fetch('../../back_end/getidtable_chef.php')
+            .then(response => response.json())
+            .then(data => {
+                // เมื่อได้ข้อมูลมาเรียบร้อยแล้ว ให้แสดงผลลัพธ์ใน HTML
+                const tableContainer = document.getElementById('table-container');
+                data.forEach(tableId => {
+                    const tableDiv = document.createElement('div');
+                    tableDiv.id = tableId; // กำหนด ID ตามค่าของ table_id
+                    tableDiv.onclick = function () {
+                        show(this);
+                        sendTableNumber(tableId);
+                    };
+                    tableDiv.className = 'hover:bg-[#7A6464] cursor-pointer m-1 hover: hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex';
+                    tableDiv.innerHTML = `
+        <div class="grid grid-cols-2 w-[100%] px-4">
+          <div class="mitr text-[20px] pt-3">โต๊ะ ${tableId}</div>
+          <div class="flex justify-end">
+            <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">มีออเดอร์</div>
+          </div>
+        </div>
+      `;
+                    tableContainer.appendChild(tableDiv);
+                });
+            })
+            .catch(error => console.error('เกิดข้อผิดพลาด: ', error));
     </script>
 </body>
+
 </html>
