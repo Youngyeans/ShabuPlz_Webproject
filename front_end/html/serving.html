@@ -31,7 +31,7 @@
                 <div class="flex space-x-5 pr-2">
                     <p class="mitr text-[16px] text-[#B78D43] flex items-center text-[32px]">โต๊ะ</p>
                     <!-- ตั้งต้นเป็น เลข 1 ถ้ากดโต๊ะอื่นก็จะเปลี่ยนโต๊ะ -->
-                    <div id="table" class="mitr bg-[#D9D9D9] w-16 mt-1 p-2 rounded-md text-center">1</div>
+                    <div id="table" class="mitr bg-[#D9D9D9] w-16 mt-1 p-2 rounded-md text-center">0</div>
                 </div>
             </div>
         </div>
@@ -39,27 +39,8 @@
             <div class="left w-[30%] overflow-auto px-5">
                 <!-- กล่องให้ใส่ -->
                 <div class="h-[70vh] mx-5 rounded-xl bg-[#D7D4CF] overflow-auto space-y-3 p-4">
-                    <div class="p-2 h-[100%] overflow-auto pr-4 space-y-3">
+                    <div id="table-container" class="p-2 h-[100%] overflow-auto pr-4 space-y-3">
                         <!-- ให้มัน generate กล่อง -->
-                        <div id="1" onclick="show(this)" class="cursor-pointer m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
-                            <div class="grid grid-cols-2 w-[100%] px-4">
-                                <div class="mitr text-[20px] pt-3" >โต๊ะ 1</div>
-                                <div class="flex justify-end">
-                                    <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">พร้อมเสิร์ฟ</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 1 กล่อง -->
-                        <!-- เอามาโชว์กว่ามันเปลี่ยน table ได้จ้า -->
-                        <div id="2" onclick="show(this)" class="cursor-pointer m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
-                            <div class="grid grid-cols-2 w-[100%] px-4">
-                                <div class="mitr text-[20px] pt-3" >โต๊ะ 2</div>
-                                <div class="flex justify-end">
-                                    <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">พร้อมเสิร์ฟ</div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -67,45 +48,80 @@
             <div class="right w-[70%] px-6">
                 <div class="h-[70vh] mx-5 rounded-xl bg-[#817B8538] space-y-3 p-4">
                     <div class="text-[36px] text-white mitr mt-2 mb-4 m-3"> รายการอาหาร</div>
-                    <div class="p-2 h-[75%] overflow-auto mr-4  space-y-5">
+                    <div id="order-container" class="p-2 h-[75%] overflow-auto mr-4  space-y-5">
                         <!-- ให้มัน generate กล่อง -->
-                        <div class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex mx-10">
-                            <div class="flex w-[100%] p-2 space-x-10 ">
-                                <div class="w-[100px] h-[70px] bg-cover bg-no-repeat bg-center rounded-xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                                <div class="w-[52%] flex items-center mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</div>
-                                <div class="  flex items-center noto text-[16px] noto text-end">จำนวน 1 ชุด</div>
-                                <button onclick="serve(this)" class="bg-[#555960] text-white noto text-[16px] my-2 px-5 rounded-full transition hover:scale-105 hover:bg-[#B78D43] tracking-[0.1em] text-wservete ">เสิร์ฟสำเร็จ</button>
-                            </div>
-                        </div>
-                        <!-- 1 กล่อง -->
                     </div>
-                    <!-- <div class="flex justify-end mx-5">
-                        <button onclick="serve()" class="bg-[#555960] text-white noto text-[20px] font-semibold py-3 px-8 rounded-full transition hover:scale-105 hover:bg-[#B78D43] tracking-[0.1em] text-wservete ">เสิร์ฟสำเร็จ</button>
-                    </div> -->
                 </div>
             </div>
         </div>
     </div>
     <script>
         function serve(btn){
-            let status = document.getElementById("status");
+            var orderId = btn.id;
             if (confirm("เสิร์ฟเรียบร้อบใช่หรือไม่")) {
-                btn.innerText = "เสิร์ฟเรียบร้อย";
-                btn.disabled = true;
-                btn.classList.remove("hover:scale-105");
-                btn.classList.remove("hover:bg-[#B78D43]");
-                btn.classList.remove("bg-[#555960]");
-                btn.classList.add("bg-[#61A12E]");
-                btn.classList.remove("text-white");
-              } else {
-                //ไม่ก็ไม่ต้องทำอะไร
-              }
+                sendStatustoDelete(orderId);
+            }
+        }
+
+        function sendStatustoDelete(orderId) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText); // สามารถแสดงข้อความตอบกลับจากเซิร์ฟเวอร์ได้
+                }
+            };
+            xhttp.open("POST", "../../back_end/deleteorder_waiter.php", true); // เปลี่ยนเส้นทางไปยังไฟล์ PHP ที่จะดำเนินการอัปเดตฐานข้อมูล
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("orderId=" + orderId);
         }
 
         function show(table){
             let num = document.getElementById("table");
             num.innerHTML = table.id;
         }
+
+        function sendTableNumber(tableNumber) {
+                var xhttp = new XMLHttpRequest(); // สร้าง XMLHttpRequest object
+
+                // กำหนด callback function เมื่อสถานะการเปลี่ยนแปลง
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // การทำงานหลังจากได้รับคำตอบจากเซิร์ฟเวอร์
+                        document.getElementById("order-container").innerHTML = this.responseText;
+                    }
+                };
+
+                // เตรียมสร้างคำร้องขอ POST ไปยังไฟล์ PHP และส่งค่าเลขโต๊ะไปด้วย
+                xhttp.open("POST", "../../back_end/showorder_waiter.php", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("tableNumber=" + tableNumber);
+            }
+
+        fetch('../../back_end/getidtable_waiter.php')
+                .then(response => response.json())
+                .then(data => {
+                    // เมื่อได้ข้อมูลมาเรียบร้อยแล้ว ให้แสดงผลลัพธ์ใน HTML
+                    const tableContainer = document.getElementById('table-container');
+                    data.forEach(tableId => {
+                        const tableDiv = document.createElement('div');
+                        tableDiv.id = tableId; // กำหนด ID ตามค่าของ table_id
+                        tableDiv.onclick = function () {
+                            show(this);
+                            sendTableNumber(tableId);
+                        };
+                        tableDiv.className = 'hover:bg-[#7A6464] cursor-pointer m-1 hover: hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex';
+                        tableDiv.innerHTML = `
+        <div class="grid grid-cols-2 w-[100%] px-4">
+          <div class="mitr text-[20px] pt-3">โต๊ะ ${tableId}</div>
+          <div class="flex justify-end">
+            <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">พร้อมเสิร์ฟ</div>
+          </div>
+        </div>
+      `;
+                        tableContainer.appendChild(tableDiv);
+                    });
+                })
+                .catch(error => console.error('เกิดข้อผิดพลาด: ', error));
     </script>
 </body>
 </html>
