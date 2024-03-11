@@ -60,6 +60,12 @@
             var orderId = btn.id;
             if (confirm("เสิร์ฟเรียบร้อบใช่หรือไม่")) {
                 sendStatustoDelete(orderId);
+                btn.innerText = "เสิร์ฟสำเร็จ";
+                btn.disabled = true;
+                btn.classList.remove("bg-[#555960]");
+                btn.classList.add("bg-[#61A12E]");
+                btn.classList.remove("hover:scale-105");
+                btn.classList.remove("hover:bg-[#B78D43]");
             }
         }
 
