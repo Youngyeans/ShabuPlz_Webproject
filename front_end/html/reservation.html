@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;400&family=Libre+Caslon+Text&family=Kolker+Brush&display=swap');
@@ -148,57 +150,70 @@
     </style>
 </head>
 <body class="bg-black">
-    <div class="container p-6 bg-white mt-6 mb-20 rounded-lg shadow-md">
-        <h1 class="text-4xl mb-4">จองโต๊ะ</h1>
-        <h4>กรุณากรอกให้ครบถ้วน เพื่อป้องกันการผิดพลาด</h4>
-        <div class="overflow-y-auto max-h-screen">
-            <div class="grid-container">
-                <div class="input-container mb-4 relative">
-                    <label for="reservname" class="input-label">ชื่อผู้จอง</label>
-                    <input type="text" id="reservname" name="reservname" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="ชื่อผู้จอง">
+    <div id="navbar-placeholder"></div>
+  <script>
+    fetch('asset/navbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+      });
+  </script>
+  <script defer src="../js/navbar.js"></script>
+
+    <div class="pt-20">
+        <div class="container p-6 mt-6 mb-20 rounded-lg shadow-md">
+            <h1 class="text-4xl mb-4">จองโต๊ะ</h1>
+            <h4>กรุณากรอกให้ครบถ้วน เพื่อป้องกันการผิดพลาด</h4>
+            <div class="overflow-y-auto max-h-screen">
+                <div class="grid-container">
+                    <div class="input-container mb-4 relative">
+                        <label for="reservname" class="input-label">ชื่อผู้จอง</label>
+                        <input type="text" id="reservname" name="reservname" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="ชื่อผู้จอง">
+                    </div>
+                    <div class="input-container mb-4 relative">
+                        <label for="numpeople" class="input-label">จำนวนคน</label>
+                        <input type="text" id="numpeople" name="numpeople" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="จำนวนคน">
+                    </div>
                 </div>
-                <div class="input-container mb-4 relative">
-                    <label for="numpeople" class="input-label">จำนวนคน</label>
-                    <input type="text" id="numpeople" name="numpeople" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="จำนวนคน">
+                <div class="flex-container">
+                    <div class="input-container mb-4 relative">
+                        <label for="bookingdate" class="input-label">วันที่ต้องการจอง</label>
+                        <input type="text" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="ว/ด/ป">
+                    </div>
+                    <div class="input-container mb-4 relative">
+                        <label for="bookingdate" class="input-label">เวลา</label>
+                        <input type="text" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="00:00 น.">
+                    </div>
+                    <button id="showTables" class="custom-button text-white font-bold py-2 px-4 rounded">ดูโต๊ะว่าง</button>
+                </div>
+                <h5 class="mb-4 text-white">หมายเหตุ : หากมาช้า 15 นาที หลังจากเวลาจอง ขอสงวนสิทธิ์ให้ลูกค้าท่านอื่นค่ะ</h5>
+                <div id="beforeTable" class="before-table">
+                    <h2 class="text-white mb-4">เลือกโต๊ะที่ต้องการ</h2>
+                    <div class="circle flex items-center mb-4">
+                        <div class="custom-circle1 rounded-full w-6">+</div>
+                        <h6 class="text-white ml-2 mb-0">จองแล้ว   </h6>
+                        <div class="custom-circle2 rounded-full w-6">+</div>
+                        <h6 class="text-white ml-2 mb-0">โต๊ะว่าง</h6>
+                        <div class="custom-circle3 rounded-full w-6">+</div>
+                        <h6 class="text-white ml-2 mb-0">เลือก</h6>
+                    </div>
+                    <div id="tableContainer" class="table-container">
+                        <button class="table">1</button>
+                        <button class="table">2</button>
+                        <button class="table">3</button>
+                        <button class="table">4</button>
+                        <button class="table">5</button>
+                        <button class="table">6</button>
+                        <button class="table">7</button>
+                        <button class="table">8</button>
+                        <button class="table">9</button>
+                        <button class="table">10</button>
+                        <button class="table">11</button>
+                        <button class="table">12</button>
+                    </div>
+                    <button id="reservButton" class="reserv-button text-white font-bold py-2 px-4 rounded mt-4 block mx-auto">จองโต๊ะ</button>
                 </div>
             </div>
-            <div class="flex-container">
-                <div class="input-container mb-4 relative">
-                    <label for="bookingdate" class="input-label">วันที่ต้องการจอง</label>
-                    <input type="text" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="ว/ด/ป">
-                </div>
-                <div class="input-container mb-4 relative">
-                    <label for="bookingdate" class="input-label">เวลา</label>
-                    <input type="text" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="00:00 น.">
-                </div>
-                <button id="showTables" class="custom-button text-white font-bold py-2 px-4 rounded">ดูโต๊ะว่าง</button>
-            </div>
-            <h5 class="mb-4 text-white">หมายเหตุ : หากมาช้า 15 นาที หลังจากเวลาจอง ขอสงวนสิทธิ์ให้ลูกค้าท่านอื่นค่ะ</h5>
-            <div id="beforeTable" class="before-table">
-                <h2 class="text-white mb-4">เลือกโต๊ะที่ต้องการ</h2>
-                <div class="circle flex items-center mb-4">
-                    <div class="custom-circle1 rounded-full w-6">+</div>
-                    <h6 class="text-white ml-2 mb-0">จองแล้ว   </h6>
-                    <div class="custom-circle2 rounded-full w-6">+</div>
-                    <h6 class="text-white ml-2 mb-0">โต๊ะว่าง</h6>
-                    <div class="custom-circle3 rounded-full w-6">+</div>
-                    <h6 class="text-white ml-2 mb-0">เลือก</h6>
-                </div>
-            <div id="tableContainer" class="table-container">
-                <button class="table">1</button>
-                <button class="table">2</button>
-                <button class="table">3</button>
-                <button class="table">4</button>
-                <button class="table">5</button>
-                <button class="table">6</button>
-                <button class="table">7</button>
-                <button class="table">8</button>
-                <button class="table">9</button>
-                <button class="table">10</button>
-                <button class="table">11</button>
-                <button class="table">12</button>
-            </div>
-            <button id="reservButton" class="reserv-button text-white font-bold py-2 px-4 rounded mt-4 block mx-auto">จองโต๊ะ</button>
         </div>
     </div>
 
