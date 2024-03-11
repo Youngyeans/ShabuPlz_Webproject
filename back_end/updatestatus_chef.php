@@ -10,17 +10,16 @@
         echo $db->lastErrorMsg();
     }
 
-    $order_id = $_POST['order_id'];
+    $order_id = $_POST['orderId'];
     $status = $_POST['status'];
 
-    // ทำการอัปเดตข้อมูลในตาราง orders
-    $sql = "UPDATE orders SET status = :status WHERE order_id = :order_id";
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':status', $status, SQLITE3_TEXT);
-    $stmt->bindValue(':order_id', $order_id, SQLITE3_INTEGER);
-
-    // ทำการ execute คำสั่ง SQL
-    $result = $stmt->execute();
+    if($status == 'non-active'){
+        $sql = "UPDATE orders SET status = 'process' WHERE order_id = $order_id";
+        $result = $db->exec($sql);
+    } else if($status == 'process'){
+        $sql = "UPDATE orders SET status = 'active' WHERE order_id = $order_id";
+        $result = $db->exec($sql);
+    }
 
     if ($result) {
         // สำเร็จในการอัปเดตข้อมูล
