@@ -11,12 +11,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;400&family=Libre+Caslon+Text&family=Kolker+Brush&display=swap');
         /* เพิ่มสไตล์สำหรับการกำหนดขนาดของ container */
-        .container {
-            max-width: 1200px; /* กำหนดขนาดสูงสุดของ container */
+        /*.container {
+             max-width: 1200px; กำหนดขนาดสูงสุดของ container
             margin-left: auto;
             margin-right: auto;
             background-color: rgba(129, 123, 133, 0.22);
-        }
+        }*/
         h1 {
             font-family: 'Mitr';
             color: #B78D43;
@@ -32,8 +32,6 @@
         h5 {
             font-family: 'Noto Sans Thai';
             font-size: small;
-            padding-left: 350px;
-            padding-top: 30px;
         }
         h6 {
             font-size: small;
@@ -55,7 +53,7 @@
         }
         .input-container {
             background-color: #D7D4CF;
-            border-radius: 30px;
+            border-radius: 60px;
             position: relative;
         }
         .input-container input {
@@ -66,16 +64,14 @@
             align-items: center;
             gap: 3rem;
         }
-        .grid-container {
+        /*.grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
-        }
+        }*/
         .custom-button {
             background-color: #555960;
             border-radius: 35px;
-            width: 150px;
-            height: 50px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-family: 'Noto Sans Thai';
@@ -84,8 +80,6 @@
             background-color: rgb(185, 182, 182);
         }
         .table-container {
-            display: none; /* เริ่มต้นซ่อนโต๊ะ */
-            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 30px;
             justify-content: center;
@@ -95,9 +89,7 @@
             align-items: center;
         }
         .table {
-        background-color: #D7D4CF;
         border-radius: 20px;
-        padding: 10px; /* ปรับขนาด padding เพื่อลดระยะห่างรอบโต๊ะ */
         text-align: center;
         font-family: 'Mitr';
         font-size: 20px;
@@ -111,7 +103,7 @@
             background-color: #B78D43;
         }
         .before-table {
-            display: none; /* ซ่อนคำว่า "เลือกโต๊ะที่ต้องการ" เริ่มต้น */
+             /* ซ่อนคำว่า "เลือกโต๊ะที่ต้องการ" เริ่มต้น */
             text-align: center;
             text-align: center;
             cursor: pointer;
@@ -119,18 +111,10 @@
             font-family: 'Noto Sans Thai';
         }
         .reserv-button {
-            display: none; /* ซ่อนปุ่มจองโต๊ะเริ่มต้น */
-            margin-top: 20px;
             background-color: #B78D43;
-            border-radius: 35px;
-            width: 150px;
-            height: 50px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-family: 'Noto Sans Thai';
-        }
-        .reserv-button:hover {
-            background-color: #755b2e;
         }
         .circle {
             justify-content: center;
@@ -151,95 +135,132 @@
 </head>
 <body class="bg-black">
     <div id="navbar-placeholder"></div>
-  <script>
-    fetch('asset/navbar.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('navbar-placeholder').innerHTML = html;
-      });
-  </script>
-  <script defer src="../js/navbar.js"></script>
+    <script>
+        fetch('asset/navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-placeholder').innerHTML = html;
+        });
+    </script>
+    <script defer src="../js/navbar.js"></script>
+    <div class="fixed w-[100%] p-2 z-20 mitr text-[14px] bg-[#72706E] mt-[60px] flex space-x-7 justify-center">
+      <img src="../../src/img/time-past 1.png">
+      <div class="text-center">เปิดทุกวัน เวลาทำการ 11:00 - 23:00 น.</div>
+  </div>
 
-    <div class="pt-20">
-        <div class="container p-6 mt-6 mb-20 rounded-lg shadow-md">
-            <h1 class="text-4xl mb-4">จองโต๊ะ</h1>
-            <h4>กรุณากรอกให้ครบถ้วน เพื่อป้องกันการผิดพลาด</h4>
-            <div class="overflow-y-auto max-h-screen">
-                <div class="grid-container">
-                    <div class="input-container mb-4 relative">
-                        <label for="reservname" class="input-label">ชื่อผู้จอง</label>
-                        <input type="text" id="reservname" name="reservname" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="ชื่อผู้จอง">
-                    </div>
-                    <div class="input-container mb-4 relative">
-                        <label for="numpeople" class="input-label">จำนวนคน</label>
-                        <input type="text" id="numpeople" name="numpeople" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="จำนวนคน">
+    <div class="pt-28 flex justify-center">
+        <div>
+            <div class="flex justify-center">
+                <div class="bg-[#817B8538] w-[75%] p-20 pb-10 m-40 mt-6 mb-20 rounded-2xl shadow-md">
+                    <h1 class="text-4xl mb-4">จองโต๊ะ</h1>
+                    <h4>กรุณากรอกให้ครบถ้วน เพื่อป้องกันการผิดพลาด</h4>
+                    <div class="max-h-screen py-8 px-10 space-y-5">
+                        <div class="grid grid-cols-3 gap-10">
+                            <div class="input-container mb-4 relative">
+                                <label for="reservname" class="input-label">ชื่อผู้จอง</label>
+                                <input type="text" id="reservname" name="reservname" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="ชื่อผู้จอง">
+                            </div>
+                            <div class="input-container mb-4 relative">
+                                <label for="numpeople" class="input-label">จำนวนคน</label>
+                                <input type="text" id="numpeople" name="numpeople" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="จำนวนคน">
+                            </div>
+                        </div>
+                        <div class="flex-container grid grid-cols-4">
+                            <div class="input-container mb-4 relative">
+                                <label for="bookingdate" class="input-label">วันที่ต้องการจอง</label>
+                                <input type="date" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" >
+                            </div>
+                            <div class="input-container mb-4 relative">
+                                <label for="bookingdate" class="input-label">เวลา</label>
+                                <input type="time" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none">
+                            </div>
+                            <button id="showTables" class="custom-button text-white  py-4 px-4 rounded-full hover:scale-105 transition hover:text-">ดูโต๊ะว่าง</button>
+                        </div>
+                        <h5 class=" text-white text-center mt-10">หมายเหตุ : หากมาช้า 15 นาที หลังจากเวลาจอง ขอสงวนสิทธิ์ให้ลูกค้าท่านอื่นค่ะ</h5>
                     </div>
                 </div>
-                <div class="flex-container">
-                    <div class="input-container mb-4 relative">
-                        <label for="bookingdate" class="input-label">วันที่ต้องการจอง</label>
-                        <input type="text" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="ว/ด/ป">
-                    </div>
-                    <div class="input-container mb-4 relative">
-                        <label for="bookingdate" class="input-label">เวลา</label>
-                        <input type="text" id="bookingdate" name="bookingdate" class="w-full h-20 px-3 py-2 border rounded-md focus:outline-none" placeholder="00:00 น.">
-                    </div>
-                    <button id="showTables" class="custom-button text-white font-bold py-2 px-4 rounded">ดูโต๊ะว่าง</button>
-                </div>
-                <h5 class="mb-4 text-white">หมายเหตุ : หากมาช้า 15 นาที หลังจากเวลาจอง ขอสงวนสิทธิ์ให้ลูกค้าท่านอื่นค่ะ</h5>
-                <div id="beforeTable" class="before-table">
+            </div>
+            <div class="flex justify-center mb-20">
+                <div id="beforeTable" class="hidden before-table w-[50%]">
                     <h2 class="text-white mb-4">เลือกโต๊ะที่ต้องการ</h2>
                     <div class="circle flex items-center mb-4">
                         <div class="custom-circle1 rounded-full w-6">+</div>
-                        <h6 class="text-white ml-2 mb-0">จองแล้ว   </h6>
+                        <h6 class="text-white ml-2 mb-0">จองแล้ว</h6>
                         <div class="custom-circle2 rounded-full w-6">+</div>
                         <h6 class="text-white ml-2 mb-0">โต๊ะว่าง</h6>
                         <div class="custom-circle3 rounded-full w-6">+</div>
                         <h6 class="text-white ml-2 mb-0">เลือก</h6>
                     </div>
-                    <div id="tableContainer" class="table-container">
-                        <button class="table">1</button>
-                        <button class="table">2</button>
-                        <button class="table">3</button>
-                        <button class="table">4</button>
-                        <button class="table">5</button>
-                        <button class="table">6</button>
-                        <button class="table">7</button>
-                        <button class="table">8</button>
-                        <button class="table">9</button>
-                        <button class="table">10</button>
-                        <button class="table">11</button>
-                        <button class="table">12</button>
+                    <div id="tableContainer" class="table-container grid grid-cols-3 my-10 hover:bg-[]">
+                        <button id="1" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">1</button>
+                        <button id="2" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">2</button>
+                        <button id="3" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">3</button>
+                        <button id="4" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">4</button>
+                        <button id="5" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">5</button>
+                        <button id="6" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">6</button>
+                        <button id="7" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">7</button>
+                        <button id="8" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">8</button>
+                        <button id="9" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">9</button>
+                        <button id="10" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">10</button>
+                        <button id="11" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">11</button>
+                        <button id="12" onclick="select(this)" class="table bg-[#D7D4CF] hover:bg-[#555960] transition">12</button>
                     </div>
-                    <button id="reservButton" class="reserv-button text-white font-bold py-2 px-4 rounded mt-4 block mx-auto">จองโต๊ะ</button>
+                    <button onclick="reserve()" id="reservButton" class="reserv-button text-white text-[24px] py-3 px-14 rounded-full mt-4 block mx-auto hover:scale-105 ">จองโต๊ะ</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        function reserve(){
+            let select = false;
+            document.querySelectorAll('.table').forEach(btn => {
+                if(btn.classList.contains('bg-[#B78D43]')){
+                    select = true;
+                    if (confirm("ต้องการจองโต๊ะใช่มั้ย")) {
+                        alert("จองโต๊ะเรียบร้อย");
+                      }
+                }
+            });
+            if(select == false){
+                alert("กรุณาเลือกโต๊ะ");
+            }
+        }
+        function select(button){
+            document.querySelectorAll('.table').forEach(btn => {
+                btn.classList.add("bg-[#D7D4CF]");
+                btn.classList.remove("bg-[#B78D43]");
+                btn.classList.add("hover:bg-[#555960]");
+            });
+            button.classList.remove("bg-[#D7D4CF]");
+            button.classList.add("bg-[#B78D43]");
+            button.classList.remove("hover:bg-[#555960]");
+        }
         document.getElementById('showTables').addEventListener('click', function() {
             // ตรวจสอบว่ามีข้อมูลที่ถูกกรอกใน input fields หรือไม่
             var reservname = document.getElementById('reservname').value;
             var numpeople = document.getElementById('numpeople').value;
             var bookingdate = document.getElementById('bookingdate').value;
+            var table = document.getElementById('beforeTable');
     
             // ถ้ามี input fields ใดหนึ่งไม่ถูกกรอก
             if (reservname === '' || numpeople === '' || bookingdate === '') {
                 // แสดง alert ให้ผู้ใช้กรอกข้อมูล
                 alert('กรุณากรอกข้อมูลให้ครบถ้วน');
                 return; // ออกจากฟังก์ชันโดยไม่ทำอะไรเพิ่มเติม
+            } else{
+                table.classList.remove("hidden");
             }
-    
+
             // ถ้าข้อมูลถูกกรอกครบทั้ง 3 ช่อง
-            var tableContainer = document.getElementById('tableContainer');
+            /*var tableContainer = document.getElementById('tableContainer');
             tableContainer.style.display = 'grid';
     
             var beforeTable = document.getElementById('beforeTable');
             beforeTable.style.display = 'block';
     
             var reservButton = document.getElementById('reservButton');
-            reservButton.style.display = 'block';
+            reservButton.style.display = 'block';*/
         });
     </script>
 </body>
