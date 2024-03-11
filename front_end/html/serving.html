@@ -28,9 +28,10 @@
         <div class="top grid grid-cols-2 p-5 pt-20">
             <div class="  p-2 mitr text-[42px] text-[#B78D43]">ออเดอร์ลูกค้า</div>
             <div class=" flex mt-3 justify-end pb-8  p-2 ml-2">
-                <div onclick="show" class="flex space-x-5 pr-2">
+                <div class="flex space-x-5 pr-2">
                     <p class="mitr text-[16px] text-[#B78D43] flex items-center text-[32px]">โต๊ะ</p>
-                    <input id="table" type="text" class="mitr bg-[#D9D9D9] w-16 mt-1 p-2 rounded-md text-center" value="0">
+                    <!-- ตั้งต้นเป็น เลข 1 ถ้ากดโต๊ะอื่นก็จะเปลี่ยนโต๊ะ -->
+                    <div id="table" class="mitr bg-[#D9D9D9] w-16 mt-1 p-2 rounded-md text-center">1</div>
                 </div>
             </div>
         </div>
@@ -40,7 +41,7 @@
                 <div class="h-[70vh] mx-5 rounded-xl bg-[#D7D4CF] overflow-auto space-y-3 p-4">
                     <div class="p-2 h-[100%] overflow-auto pr-4 space-y-3">
                         <!-- ให้มัน generate กล่อง -->
-                        <div class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                        <div id="1" onclick="show(this)" class="cursor-pointer m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
                             <div class="grid grid-cols-2 w-[100%] px-4">
                                 <div class="mitr text-[20px] pt-3" >โต๊ะ 1</div>
                                 <div class="flex justify-end">
@@ -49,6 +50,16 @@
                             </div>
                         </div>
                         <!-- 1 กล่อง -->
+                        <!-- เอามาโชว์กว่ามันเปลี่ยน table ได้จ้า -->
+                        <div id="2" onclick="show(this)" class="cursor-pointer m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                            <div class="grid grid-cols-2 w-[100%] px-4">
+                                <div class="mitr text-[20px] pt-3" >โต๊ะ 2</div>
+                                <div class="flex justify-end">
+                                    <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">พร้อมเสิร์ฟ</div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -91,8 +102,9 @@
               }
         }
 
-        function show(){
-
+        function show(table){
+            let num = document.getElementById("table");
+            num.innerHTML = table.id;
         }
     </script>
 </body>
