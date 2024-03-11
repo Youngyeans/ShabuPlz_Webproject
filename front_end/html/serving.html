@@ -24,41 +24,76 @@
         </div>
     </nav>
 
-    <div>
+    <div class="mx-10">
           <div class="top grid grid-cols-2 p-5 pt-20">
-            <div class="bg-black p-2 mitr text-[42px] text-[#B78D43]">ออเดอร์ลูกค้า</div>
-            <div class="bg-black flex mt-3 justify-end border-b-[3px] pb-8 border-[#817B85] p-2 ml-2">
-                <div class="flex space-x-5 pr-2">
+            <div class="  p-2 mitr text-[42px] text-[#B78D43]">ออเดอร์ลูกค้า</div>
+            <div class=" flex mt-3 justify-end pb-8  p-2 ml-2">
+                <div onclick="show" class="flex space-x-5 pr-2">
                     <p class="mitr text-[16px] text-[#B78D43] flex items-center text-[32px]">โต๊ะ</p>
-                    <input value="" placeholder="เลข" class="mitr text-center text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[48px] shadow-[#00000033] rounded-lg py-2">
+                    <input id="table" type="text" class="mitr bg-[#D9D9D9] w-16 mt-1 p-2 rounded-md text-center" value="0">
                 </div>
             </div>
         </div>
         <div class="low flex">
-            <div class="left bg-[#D7D4CF] overflow-auto">
+            <div class="left w-[30%] overflow-auto px-5">
                 <!-- กล่องให้ใส่ -->
-                <div class="h-[460px] mt-7 overflow-auto space-y-3 py-2 pr-3 ">
-
-                    <!-- ให้มัน generate กล่อง -->
-                    <div class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
-                        <div class="grid grid-cols-2 justifly-end w-[100%]">
-                            <div class="mitr text-[20px] w-[150px] pt-3" >โต้ะ 1</div>
-                            <button class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 mx-20">มีออเดอร์</button>
+                <div class="h-[70vh] mx-5 rounded-xl bg-[#D7D4CF] overflow-auto space-y-3 p-4">
+                    <div class="p-2 h-[100%] overflow-auto pr-4 space-y-3">
+                        <!-- ให้มัน generate กล่อง -->
+                        <div class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex">
+                            <div class="grid grid-cols-2 w-[100%] px-4">
+                                <div class="mitr text-[20px] pt-3" >โต๊ะ 1</div>
+                                <div class="flex justify-end">
+                                    <div id="status" class="bg-red-500 text-white px-4 py-2 rounded-md mt-2 hover:">พร้อมเสิร์ฟ</div>
+                                </div>
+                            </div>
                         </div>
+                        <!-- 1 กล่อง -->
                     </div>
                 </div>
             </div>
-            <div class="right w-[70%] bg-pink-500 overflow-auto">
-                <div class="bg-[#817B8538] grid grid-cols-1">
-                    <div class="text-[20px]"> รายการอาหาร</div>
-                    <div class="bg-[#D7D4CF] rounded-2xl mt-2 mx-10 grid grid-cols-3">
-                            <div class="w-[200px] h-[160px] bg-cover bg-no-repeat bg-center" style="background-image: url('/src/img/Rectangle 34.png');"></div>
-                            <p class="mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</p>
-                            <p class="noto text-[16px]">จำนวน 1 ชุด</p>
+
+            <div class="right w-[70%] px-6">
+                <div class="h-[70vh] mx-5 rounded-xl bg-[#817B8538] space-y-3 p-4">
+                    <div class="text-[36px] text-white mitr mt-2 mb-4 m-3"> รายการอาหาร</div>
+                    <div class="p-2 h-[75%] overflow-auto mr-4  space-y-5">
+                        <!-- ให้มัน generate กล่อง -->
+                        <div class="m-1 hover:scale-105 space-x-3 mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 shadow-[#00000033] rounded-lg flex mx-10">
+                            <div class="flex w-[100%] p-2 space-x-10 ">
+                                <div class="w-[100px] h-[70px] bg-cover bg-no-repeat bg-center rounded-xl" style="background-image: url('/src/img/Rectangle 34.png');"></div>
+                                <div class="w-[52%] flex items-center mitr text-[20px]">ไอศกรีมรสช็อคโกแลต</div>
+                                <div class="  flex items-center noto text-[16px] noto text-end">จำนวน 1 ชุด</div>
+                                <button onclick="serve(this)" class="bg-[#555960] text-white noto text-[16px] my-2 px-5 rounded-full transition hover:scale-105 hover:bg-[#B78D43] tracking-[0.1em] text-wservete ">เสิร์ฟสำเร็จ</button>
+                            </div>
+                        </div>
+                        <!-- 1 กล่อง -->
                     </div>
+                    <!-- <div class="flex justify-end mx-5">
+                        <button onclick="serve()" class="bg-[#555960] text-white noto text-[20px] font-semibold py-3 px-8 rounded-full transition hover:scale-105 hover:bg-[#B78D43] tracking-[0.1em] text-wservete ">เสิร์ฟสำเร็จ</button>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function serve(btn){
+            let status = document.getElementById("status");
+            if (confirm("เสิร์ฟเรียบร้อบใช่หรือไม่")) {
+                btn.innerText = "เสิร์ฟเรียบร้อย";
+                btn.disabled = true;
+                btn.classList.remove("hover:scale-105");
+                btn.classList.remove("hover:bg-[#B78D43]");
+                btn.classList.remove("bg-[#555960]");
+                btn.classList.add("bg-[#61A12E]");
+                btn.classList.remove("text-white");
+              } else {
+                //ไม่ก็ไม่ต้องทำอะไร
+              }
+        }
+
+        function show(){
+
+        }
+    </script>
 </body>
 </html>
