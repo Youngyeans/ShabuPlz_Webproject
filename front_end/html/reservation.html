@@ -246,6 +246,20 @@
     </div>
 
     <script>
+
+        function move() {
+            const section = document.getElementById("beforeTable");
+            console.log(section);
+            const sectionY = section.getBoundingClientRect().top + window.scrollY;
+            console.log(sectionY);
+
+            window.scrollTo({
+                top: sectionY - window.innerHeight/6,
+                behavior: "smooth",
+            });
+        }
+
+
         function reserve() {
             let select = false;
             document.querySelectorAll('.table').forEach(btn => {
@@ -325,6 +339,18 @@
             } else {
                 table.classList.remove("hidden");
             }
+            // move();
+            setTimeout(function() {
+                console.log(table);
+                const tableY = table.getBoundingClientRect().top + window.scrollY;
+                console.log(tableY);
+
+                window.scrollTo({
+                    top: tableY - window.innerHeight/6,
+                    behavior: "smooth",
+                });
+            }, 50);
+
         });
 
         function sendDate() {
@@ -344,6 +370,7 @@
             xhttp.open("POST", "../../back_end/showtable.php", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("bookingdate=" + bookingdate);
+
         }
 
 

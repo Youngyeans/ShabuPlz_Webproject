@@ -81,7 +81,7 @@
     <script defer src="../js/navbar.js"></script>
 
     <section class="flex justify-center w-[100vw] p-0 m-0">
-        <div class="flex mt-[80px] h-[280px]">
+        <div class="flex mt-[80px] h-[30vh]">
             <!-- ฝั่งซ้าย list menu -->
             <div class="w-[70vw] flex justify-center">
                 <div>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <!-- list menu -->
-                    <div id="menu" class="py-5 mt-10 pr-8 mx-16 h-[500px] overflow-auto rounded-2xl space-y-20">
+                    <div id="menu" class="py-5 mt-10 pr-8 mx-16 h-[53vh] overflow-auto rounded-2xl space-y-20">
                         <!-- แต่ละ catrgory -->
                         <div id="section1" class="bg-[#817B8538] p-5 px-14 rounded-2xl">
                             <p class="mitr text-[24px] text-[#B0A9B5]">เนื้อวัว</p>
@@ -222,11 +222,11 @@
             <!-- ฝั่งรายการอาหาร -->
             <div class="w-[30vw]flex justify-center pt-5">
                 <div
-                    class="bg-[#D7D4CF] w-[440px] h-[760px] rounded-2xl flex justify-center hover:scale-105 transition">
+                    class="bg-[#D7D4CF] w-[23vw] h-[85vh] rounded-2xl flex justify-center hover:scale-105 transition">
                     <div class="w-[100%] p-3 pt-2">
                         <p class="mitr text-[28px] mt-6 text-[#B78D43] text-center">รายการอาหาร</p>
-                        <div class="flex mt-3 border-b-[3px] pb-8 border-[#817B85] p-2 ml-2">
-                            <select id="tableSelect" class="w-[50%] mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[144px] shadow-[#00000033] rounded-lg text-[#B78D43] py-2">
+                        <div class="flex mt-3 border-b-[3px] pb-8 border-[#817B85] p-2 ml-2 flex justify-center">
+                            <select id="tableSelect" class="w-[50%] mitr text-[16px] bg-[#D9D9D9] shadow-md p-3 w-[144px] shadow-[#00000033] rounded-lg text-[#B78D43] py-2 ">
                                 <option value="">เลือกโต๊ะ</option>
                                 <?php
                                     // สร้างตัวเลือกโต๊ะตั้งแต่ 1 ถึง 12
@@ -238,7 +238,7 @@
                         </div>
 
                         <!-- กล่องให้ใส่ -->
-                        <div id="order-container" class="h-[460px] mt-7 overflow-auto space-y-3 py-2 pr-3"></div>
+                        <div id="order-container" class="h-[60%] mt-7 overflow-auto space-y-3 py-2 pr-3"></div>
 
                         <div class="flex justify-center mt-5">
                             <button id="orderButton" class="hover:scale-105 transition hover:bg-[#B78D43] text-center text-[20px] noto font-semibold bg-[#555960] text-white py-3 px-12 rounded-full" onclick="orderFood()">สั่งอาหาร</button>
