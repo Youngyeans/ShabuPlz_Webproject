@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewReservList</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;400&family=Libre+Caslon+Text&family=Kolker+Brush&display=swap');
+        .custom-bg-color {
+            background-color: rgba(129, 123, 133, 0.22);
+        }
+        h2 {
+            color: #B78D43;
+            font-family: 'Mitr';
+        }
+        h3 {
+            font-family: 'Noto Sans Thai';
+            font-size:medium;
+            color: #B78D43;
+        }
+        .custom-thead {
+            font-family: 'Noto Sans Thai';
+            font-size: large;
+        }
+        .custom-tr {
+            background-color: #B78D43; /* เปลี่ยนสีพื้นหลังของแถว */
+            border-radius: 20px;
+            font-family: 'Noto Sans Thai';
+        }
+        .custom-button {
+            background-color: #555960;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Noto Sans Thai';
+        }
+        .custom-button:hover {
+            background-color: rgb(185, 182, 182);
+        }
+
+    </style>
+</head>
+
+<body class="bg-black flex flex-col justify-center items-center h-screen">
+    <h2 class="text-5xl mb-4 text-gold">รายการจองโต๊ะ</h2>
+    <div class="bg-gray-300 p-8 rounded-lg shadow-md max-w-6xl w-full">
+        <table class="w-full table-auto" style="border-collapse: collapse;">
+            <thead>
+                <tr class="custom-thead bg-gold text-black">
+                    <th class="px-4 py-2 border-b-0">ชื่อผู้จอง</th>
+                    <th class="px-4 py-2 border-b-0">จำนวนคน</th>
+                    <th class="px-4 py-2 border-b-0">วันที่จอง</th>
+                    <th class="px-4 py-2 border-b-0">เวลา</th>
+                    <th class="px-4 py-2 border-b-0">โต๊ะ</th>
+                    <th class="px-4 py-2 border-b-0">ยืนยัน</th>
+                    <th class="px-4 py-2 border-b-0">ยกเลิก</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="custom-tr rounded-lg text-center">
+                    <td class="border px-4 py-2">ยีน คุง</td>
+                    <td class="border px-4 py-2">4</td>
+                    <td class="border px-4 py-2">3/5/2567</td>
+                    <td class="border px-4 py-2">19:00</td>
+                    <td class="border px-4 py-2">1</td>
+                    <td class="border px-4 py-2">
+                        <button onclick="confirmReservation(this)" class="custom-button text-white font-bold py-2 px-4 rounded">ยืนยัน</button></td>
+                    <td class="border px-4 py-2">
+                        <button onclick="cancelReservation(this)" class="custom-button text-white font-bold py-2 px-4 rounded">ยกเลิก</button></td>
+                </tr>
+                <tr class="custom-tr rounded-lg text-center">
+                    <td class="border px-4 py-2">น้ำข้าว อิอิ</td>
+                    <td class="border px-4 py-2">6</td>
+                    <td class="border px-4 py-2">4/5/2567</td>
+                    <td class="border px-4 py-2">19:40</td>
+                    <td class="border px-4 py-2">12</td>
+                    <td class="border px-4 py-2">
+                        <button onclick="confirmReservation(this)" class="custom-button text-white font-bold py-2 px-4 rounded">ยืนยัน</button></td>
+                    <td class="border px-4 py-2">
+                        <button onclick="cancelReservation(this)" class="custom-button text-white font-bold py-2 px-4 rounded">ยกเลิก</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="canceledReservations" class=" mt-8 hidden">รายการที่ถูกยกเลิก</h3>
+    </div>
+
+    <script>
+        function confirmReservation(button) {
+            alert("ยืนยันรายการจองโต๊ะนี้เรียบร้อยแล้ว");
+            button.disabled = true; // ปิดการใช้งานปุ่ม
+            button.style.backgroundColor = "#999999"; // เปลี่ยนสีพื้นหลังของปุ่ม
+        }
+
+        function cancelReservation(button) {
+            var row = button.parentNode.parentNode;
+            var canceledReservations = document.getElementById('canceledReservations');
+            canceledReservations.classList.remove('hidden');
+            canceledReservations.insertAdjacentHTML('beforeend', '<p>' + row.cells[0].textContent + ' ได้ถูกยกเลิกเรียบร้อยแล้ว</p>');
+            row.remove();
+        }
+    </script>
+</body>
+</html>
