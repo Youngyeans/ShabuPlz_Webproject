@@ -67,14 +67,30 @@
     </div>
     <script>
       function pay() {
-        if (confirm("ชำระเงินเรียบร้อยแล้วใช่มั้ย")) {
-          alert("ชำระเงินสำเร็จ");
+        var reservation_id = btn.id;
+        if (confirm("ต้องการยกเลิกการจองใช่ไหม")) {
+          sendtoDelete(reservation_id);
+          btn.innerText = "ยกเลิกสำเร็จ";
+          btn.disabled = true;
+          // ใส่เปลี่ยนสีให้หน่อย
         }
       }
 
-      document.addEventListener("DOMContentLoaded", function() {
+      function sendtoDelete(reservation_id) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText); // สามารถแสดงข้อความตอบกลับจากเซิร์ฟเวอร์ได้
+          }
+        };
+        xhttp.open("POST", "../../back_end/deletereserve.php", true); // เปลี่ยนเส้นทางไปยังไฟล์ PHP ที่จะดำเนินการอัปเดตฐานข้อมูล
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("reservation_id=" + reservation_id);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
         // เมื่อมีการเลือกโต๊ะ
-        document.getElementById("table-select").addEventListener("change", function() {
+        document.getElementById("table-select").addEventListener("change", function () {
           // ดึงค่าที่ถูกเลือกจากเมนูตัวเลือกโต๊ะ
           var selectedTable = document.getElementById("table-select").value;
           var now = new Date();
@@ -90,7 +106,7 @@
           // สร้าง XMLHttpRequest object
           var xhttp = new XMLHttpRequest();
           // กำหนดฟังก์ชันที่จะใช้ในการจัดการข้อมูลที่ได้รับกลับมา
-          xhttp.onreadystatechange = function() {
+          xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
               // แสดงข้อมูลรายการอาหารที่ได้รับกลับมาใน div order-container
               document.getElementById("show-bill").innerHTML = this.responseText;
