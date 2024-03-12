@@ -5,16 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ใบเสร็จอาหาร</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- css -->
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="bg-black">
-  <div class="container mx-auto mt-10 p-5">
-    <div class="flex flex-row justify-between">
-      <div class="text-[#B78D43] text-5xl">เช็คบิลอาหาร</div>
-      <div class="text-right">
-      </div>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch('asset/waiternav.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+      });
+  </script>
+  <script defer src="../js/navbar.js"></script>
+
+  <div class="container h-[calc(100vh-100px)] mx-auto pt-10 p-5">
+    <div class="flex flex-row justify-between mt-20">
+      <div class="text-[#B78D43] text-5xl mitr">เช็คบิลอาหาร</div>
+      <form id="table-form" class="space-x-5 flex">
+        <p class="mitr text-[#B78D43] flex items-center text-[20px]">โต๊ะ</p>
+        <select id="table-select" name="table-select" class="mitr bg-[#D9D9D9] mt-1 p-2 border rounded-md">
+            <option value="0">เลข</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+    </form>
     </div>
-    <div class="Low bg-purple-500">
-        <div class="mt-10 bg-white">
+    <div class="flex justify-center h-[90%]">
+      <div class="Low bg-[#D7D4CF] p-10 rounded-2xl mt-10 mitr w-[40%] ">
+        <div class="">
+            <img src="../../src/img/">
             <div class="text-center text-xl font-bold">Shabu PLZ</div>
             <div class="text-center text-sm">11/12/2566 | 15:49:33</div>
             <div class="text-center text-sm">เลขที่ใบเสร็จ: 656123456</div>
@@ -54,6 +84,7 @@
               </table>
             </div>
           </div>
+      </div>
     </div>
   </div>
 </body>
