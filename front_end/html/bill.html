@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <!-- css -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
+
 <body class="bg-black">
   <div id="navbar-placeholder"></div>
   <script>
@@ -35,83 +37,75 @@
           <div id="date" class="mitr bg-[#D9D9D9] mt-1 p-2 border rounded-md">
             <script>
               document.getElementById("date").innerHTML = `${date}`;
-              setInterval(showDateTime, 1000);
             </script>
           </div>
         </div>
         <div class="flex space-x-5">
           <p class="mitr text-[#B78D43] flex items-center text-[20px]">โต๊ะ</p>
           <select id="table-select" name="table-select" class="mitr bg-[#D9D9D9] mt-1 p-2 border rounded-md">
-              <option value="0">เลข</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
+            <option value="0">เลข</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
           </select>
         </div>
-    </form>
+      </form>
     </div>
     <div class="flex justify-center h-[95%]">
-      <div class="bg-[#D7D4CF] p-8 pt-4 rounded-2xl w-[30%] h-full flex flex-col">
-        <div class="flex justify-center h-[50%]">
-              <div class="w-[40%] h-[100%] bg-cover bg-no-repeat bg-center" style="background-image: url('../../src/img/sukiyaki.png');"></div>
-          </div>
-          <div class="">
-            <div class="text-center text-[30px] text-[#B78D43] tracking-[0.05em] mitr font-semibold">Shabu <span class="text-[#7A6464]">PLZ</span></div>
-            <div id="datetime" class="mt-2 text-center text-sm noto">
-              <script>
-                document.getElementById("datetime").innerHTML = `${date} | ${time}`;
-              </script>
-            </div>
-            <div class="text-center noto text-sm ">เลขที่ใบเสร็จ: 656123456</div>
-            <div class="text-center noto text-sm">โต๊ะ: 11</div>
-          </div>
-
-          <div class="mt-5">
-            <div class="flex justify-center w-full ">
-              <div class="grid grid-cols-2 w-[85%] border-b-2 border-[#7A6464] pb-2 px-5">
-                  <p class=" px-2 py-1 mitr text-sm text-left">รายการ</p>
-                  <p class=" px-2 py-1 mitr text-sm text-right">ราคา</p>
-                  <p class=" px-2 py-1 noto text-sm text-left">(2) ชาบูพลีส บุฟเฟต์</p>
-                  <p class=" px-2 py-1 noto text-sm text-right">998.00</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-3 flex flex-row justify-between">
-            <div class="flex justify-center w-full">
-              <div class="grid grid-cols-2 w-[85%] px-5">
-                  <p class=" px-2 py-1 text-sm mitr text-left">รวม:</p>
-                  <p class=" px-2 py-1 text-sm noto text-right">998.00</p>
-                  <p class=" px-2 py-1 text-sm mitr text-left">VAT 7%:</p>
-                  <p class=" px-2 py-1 text-sm noto text-right">69.86</p>
-                  <p class=" px-2 py-1 text-sm mitr text-left">ยอดรวม:</p>
-                  <p class=" px-2 py-1 text-sm noto text-right">1,067.86</p>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-center mt-7">
-            <div class="w-[100px] h-[100px] bg-cover bg-no-repeat bg-center rounded border-2 border-[#7A6464]" style="background-image: url('../../src/img/qrcode.png');"></div>
-          </div>
-          <div class="flex justify-center my-4">
-            <button onclick="pay()" class="bg-[#555960] noto tracking-[0.1em] text-[20px] text-white py-2 px-7 rounded-full my-4 hover:scale-105 transition hover:bg-[#B78D43]">ชำระเงิน</button>
-          </div>
+      <div id="show-bill" class="bg-[#D7D4CF] p-8 pt-4 rounded-2xl w-[30%] h-full flex flex-col">
+        <!-- show -->
+      </div>
     </div>
-  </div>
-  <script>
-    function pay() {
-      if(confirm("ชำระเงินเรียบร้อยแล้วใช่มั้ย")){
-        alert("ชำระเงินสำเร็จ");
+    <script>
+      function pay() {
+        if (confirm("ชำระเงินเรียบร้อยแล้วใช่มั้ย")) {
+          alert("ชำระเงินสำเร็จ");
+        }
       }
-    }
-  </script>
+
+      document.addEventListener("DOMContentLoaded", function() {
+        // เมื่อมีการเลือกโต๊ะ
+        document.getElementById("table-select").addEventListener("change", function() {
+          // ดึงค่าที่ถูกเลือกจากเมนูตัวเลือกโต๊ะ
+          var selectedTable = document.getElementById("table-select").value;
+          var now = new Date();
+          var year = now.getFullYear();
+          var month = now.getMonth() + 1; // เริ่มจาก 0 เพราะเดือนมีค่าตั้งแต่ 0-11
+          var day = now.getDate();
+
+          // ให้เพิ่ม leading zero หน้าเลขที่มีค่าน้อยกว่า 10
+          month = month < 10 ? '0' + month : month;
+          day = day < 10 ? '0' + day : day;
+
+          var date = year + '-' + month + '-' + day;
+          // สร้าง XMLHttpRequest object
+          var xhttp = new XMLHttpRequest();
+          // กำหนดฟังก์ชันที่จะใช้ในการจัดการข้อมูลที่ได้รับกลับมา
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              // แสดงข้อมูลรายการอาหารที่ได้รับกลับมาใน div order-container
+              document.getElementById("show-bill").innerHTML = this.responseText;
+            }
+          };
+          // กำหนด method และ url ที่จะส่งข้อมูลไปยัง
+          xhttp.open("POST", "../../back_end/displaybill.php", true);
+          // กำหนด header สำหรับการส่งข้อมูลในรูปแบบ x-www-form-urlencoded
+          xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          // ส่งข้อมูลไปยังเซิร์ฟเวอร์
+          xhttp.send("table-select=" + encodeURIComponent(selectedTable) + "&date=" + encodeURIComponent(date));
+          console.log(selectedTable, date);
+        });
+      });
+    </script>
 </body>
+
 </html>
