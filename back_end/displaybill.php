@@ -33,7 +33,7 @@
                 $paymentStmt = $db->prepare($paymentSql);
                 $paymentStmt->bindParam(':payment_datetime', $reservation_date);
                 $paymentResult = $paymentStmt->execute();
-                
+
                 $paymentRow = $paymentResult->fetchArray(SQLITE3_ASSOC);
                 $payment_id = $paymentRow['payment_id'];
                 $payment_amount = $paymentRow['payment_amount'];
@@ -83,7 +83,7 @@
                 echo '<div class="w-[100px] h-[100px] bg-cover bg-no-repeat bg-center rounded border-2 border-[#7A6464]" style="background-image: url(\'../../src/img/qrcode.png\');"></div>';
                 echo '</div>';
                 echo '<div class="flex justify-center my-4">';
-                echo '<button id="' . $reservation_id . '" onclick="pay()" class="bg-[#555960] noto tracking-[0.1em] text-[20px] text-white py-2 px-7 rounded-full my-4 hover:scale-105 transition hover:bg-[#B78D43]">ชำระเงิน</button>';
+                echo '<button id="' . $reservation_id . '" onclick="pay(this)" class="bg-[#555960] noto tracking-[0.1em] text-[20px] text-white py-2 px-7 rounded-full my-4 hover:scale-105 transition hover:bg-[#B78D43]">ชำระเงิน</button>';
                 echo '</div>';
                 echo '</div>';
             }
