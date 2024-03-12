@@ -33,19 +33,19 @@
         }
 
         .custom-tr {
-            background-color: #B78D43;
+            /* background-color: #B78D43; */
             /* เปลี่ยนสีพื้นหลังของแถว */
             border-radius: 20px;
             font-family: 'Noto Sans Thai';
         }
 
-        .custom-button {
+        /* .custom-button {
             background-color: #555960;
             border-radius: 35px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-family: 'Noto Sans Thai';
-        }
+        } */
 
         .custom-button:hover {
             background-color: rgb(185, 182, 182);
@@ -63,23 +63,30 @@
             });
     </script>
 
-    <div class="flex flex-col justify-center items-center h-screen">
-        <h2 class="text-5xl mb-4 text-gold">รายการจองโต๊ะ</h2>
-        <div class="flex flex-col justify-center items-center h-screen">
+    <div class="flex flex-col justify-center items-center h-[100vh]">
+        <div class="flex flex-col justify-center items-center w-[70%] h-full pt-7 pb-3 mt-3">
             <h2 class="text-5xl mb-4 text-gold">รายการจองโต๊ะ</h2>
-            <div class="bg-gray-300 p-8 rounded-lg shadow-md max-w-6xl w-full">
-                <table class="w-full table-auto" style="border-collapse: collapse;">
+            <div class="bg-[#D7D4CF] p-8 rounded-lg shadow-md max-w-6xl w-full h-[80%]">
+                <div class="head grid grid-cols-6 w-[100%] gap-[30px] p-3 pb-4 border-b-2 border-[#7A6464]">
+                    <div class="text-center mitr text-[20px] ">ชื่อผู้จอง</div>
+                    <div class="text-center mitr text-[20px] ">จำนวนคน</div>
+                    <div class="text-center mitr text-[20px] ">วันที่จอง</div>
+                    <div class="text-center mitr text-[20px] ">เวลา</div>
+                    <div class="text-center mitr text-[20px] ">โต๊ะ</div>
+                    <div class="text-center mitr text-[20px] invisible">ยกเลิก</div>
+                </div>
+                <!-- <table class="w-full table-auto">
                     <thead>
-                        <tr class="custom-thead bg-gold text-black">
-                            <th class="px-4 py-2 border-b-0">ชื่อผู้จอง</th>
-                            <th class="px-4 py-2 border-b-0">จำนวนคน</th>
-                            <th class="px-4 py-2 border-b-0">วันที่จอง</th>
-                            <th class="px-4 py-2 border-b-0">เวลา</th>
-                            <th class="px-4 py-2 border-b-0">โต๊ะ</th>
-                            <th class="px-4 py-2 border-b-0">ยกเลิก</th>
+                        <tr class="custom-thead text-black ">
+                            <th class="px-4 py-2 ">ชื่อผู้จอง</th>
+                            <th class="px-4 py-2 ">จำนวนคน</th>
+                            <th class="px-4 py-2 ">วันที่จอง</th>
+                            <th class="px-4 py-2 ">เวลา</th>
+                            <th class="px-4 py-2 ">โต๊ะ</th>
+                            <th class="px-4 py-2 ">ยกเลิก</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="space-y-5"> -->
                         <?php
                         class MyDB extends SQLite3
                         {
@@ -106,20 +113,16 @@
                             $reservation_id = $row['reservation_id'];
                             $table_id = $row['table_id'];
 
-                            echo '<tr class="custom-tr rounded-lg text-center">';
-                            echo '<td class="border px-4 py-2">' . $cust_name . '</td>';
-                            echo '<td class="border px-4 py-2">' . $cust_num . '</td>';
-                            echo '<td class="border px-4 py-2">' . $reservation_date . '</td>';
-                            echo '<td class="border px-4 py-2">' . $reservation_time . '</td>';
-                            echo '<td class="border px-4 py-2">' . $table_id . '</td>';
-                            echo '<td class="border px-4 py-2">';
-                            echo '<button id="' . $reservation_id . '" onclick="cancle(this)" class="custom-button text-white font-bold py-2 px-4 rounded">ยกเลิก</button>';
-                            echo '</td>';
-                            echo '</tr>';
+                            echo '<div class="head grid grid-cols-6 w-[100%] gap-[30px] p-3 pb-4 bg-[#D7D4CF] my-3 rounded-2xl shadow-md hover:scale-105">';
+                            echo '<div class="text-center noto text-[20px] flex justify-center items-center">' . $cust_name . '</div>';
+                            echo '<div class="text-center noto text-[20px] flex justify-center items-center ">' . $cust_num . '</div>';
+                            echo '<div class="text-center noto text-[20px] flex justify-center items-center ">' . $reservation_date . '</div>';
+                            echo '<div class="text-center noto text-[20px] flex justify-center items-center ">' . $reservation_time . '</div>';
+                            echo '<div class="text-center noto text-[20px] flex justify-center items-center ">' . $table_id . '</div>';
+                            echo '<button id="' . $reservation_id . '" onclick="cancle(this)" class="bg-[#555960] noto text-white text-[20px] py-2 px-4 rounded-full mx-2 hover:scale-105 hover:bg-[#C74022]">ยกเลิก</button>';
+                            echo '</div>';
                         }
                         ?>
-                    </tbody>
-                </table>
             </div>
         </div>
 
@@ -132,6 +135,8 @@
                 cancelReservation(reservation_id);
                 btn.innerText = "ยกเลิกสำเร็จ";
                 btn.disabled = true;
+                btn.classList.remove('bg-[#555960]');
+                btn.classList.add('bg-[#C74022]');
                 // ใส่เปลี่ยนสีให้หน่อย
             }
         }
