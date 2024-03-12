@@ -62,9 +62,9 @@
     <div class="flex justify-center h-[95%]">
       <div class="bg-[#D7D4CF] p-8 pt-4 rounded-2xl w-[30%] h-full flex flex-col">
         <div class="flex justify-center h-[50%]">
-              <div class="w-[40%] h-[100%] bg-cover bg-no-repeat bg-center" style="background-image: url('../../src/img/sukiyaki.png');"></div>
-          </div>
-          <div class="">
+            <div class="w-[40%] h-[100%] bg-cover bg-no-repeat bg-center" style="background-image: url('../../src/img/sukiyaki.png');"></div>
+        </div>
+        <div class="">
             <div class="text-center text-[30px] text-[#B78D43] tracking-[0.05em] mitr font-semibold">Shabu <span class="text-[#7A6464]">PLZ</span></div>
             <div id="datetime" class="mt-2 text-center text-sm noto">
               <script>
@@ -73,7 +73,42 @@
             </div>
             <div class="text-center noto text-sm ">เลขที่ใบเสร็จ: 656123456</div>
             <div class="text-center noto text-sm">โต๊ะ: 11</div>
-          </div>
+        </div>
+
+        <?php
+            class MyDB extends SQLite3
+            {
+                function __construct()
+                {
+                    $this->open('../../back_end/shabu.db');
+                }
+            }
+
+            $db = new MyDB();
+            if (!$db) {
+                echo $db->lastErrorMsg();
+            }
+
+            $query = "SELECT * FROM payment";
+            $result = $db->query($query);
+
+            while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+
+                $pay_id = $row['payment_id'];
+                $amount = $row['payment_amount'];
+
+                echo '<tr class="custom-tr rounded-lg text-center">';
+                echo '<td class="border px-4 py-2">' . $cust_name . '</td>';
+                echo '<td class="border px-4 py-2">' . $cust_num . '</td>';
+                echo '<td class="border px-4 py-2">' . $reservation_date . '</td>';
+                echo '<td class="border px-4 py-2">' . $reservation_time . '</td>';
+                echo '<td class="border px-4 py-2">' . $table_id . '</td>';
+                echo '<td class="border px-4 py-2">';
+                echo '<button id="' . $reservation_id . '" onclick="cancle(this)" class="custom-button text-white font-bold py-2 px-4 rounded">ยกเลิก</button>';
+                echo '</td>';
+                echo '</tr>';
+            }
+        ?>
 
           <div class="mt-5">
             <div class="flex justify-center w-full ">
@@ -98,6 +133,8 @@
               </div>
             </div>
           </div>
+
+
           <div class="flex justify-center mt-7">
             <div class="w-[100px] h-[100px] bg-cover bg-no-repeat bg-center rounded border-2 border-[#7A6464]" style="background-image: url('../../src/img/qrcode.png');"></div>
           </div>
