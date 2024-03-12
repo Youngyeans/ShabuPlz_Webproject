@@ -1,13 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hi</title>
+    <title>Menu Edit</title>
+    <!-- tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- css -->
     <link rel="stylesheet" href="../css/style.css" />
 </head>
+
+<?php
+    class MyDB extends SQLite3 {
+        function __construct() {
+            $this->open('../../back_end/shabu.db');
+        }
+    }
+    // Open Database
+    $db = new MyDB();
+    if(!$db) {
+        echo $db->lastErrorMsg();
+    }
+
+    function displayMenuCategory($db, $category) {
+    // คำสั่ง SQL เพื่อดึงข้อมูลจากตาราง menu โดยตรวจสอบ status
+    $sql = "SELECT menu_name, menu_id, menu_img, status FROM menu WHERE category = :category"; // ใช้ named placeholders
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':category', $category); // ใช้ bindValue แทน bindParam
+    $result = $stmt->execute();
+
+    if ($result) {
+        // วนลูปผ่านทุกแถวของผลลัพธ์
+        while($row = $result->fetchArray(SQLITE3_ASSOC)) {
+            // ตรวจสอบสถานะของรายการเมนู
+            if ($row["status"] == "active") {
+                $status = "มีในสต๊อก";
+                // แสดงรายการเมนูตามรูปแบบที่กำหนดเมื่อ status เป็น active
+                echo '<div class="flex justify-center">';
+                echo '<div class="mt-2 p-5">';
+                echo '<div class="relative">';
+                echo '<div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url(' . $row["menu_img"] . ');" onclick="addToOrder(\''. $row["menu_name"] . '\', \'quantity_' . $row["menu_name"] . '\')"></div>';
+                echo '</div>';
+                echo '<p class="mitr text-[20px] text-white mt-4 w-[100%]">' . $row["menu_name"] . '</p>';
+                echo '<p class="noto text-[16px] text-white mt-4 w-[100%] tracking-[0.05em]"> สถานะ : ' . $status . '</p>';
+                echo '<div class="flex space-x-3 items-center justify-center mt-5">';
+                echo '<button onclick="edit(this)" id="' . $row["menu_id"] . '" class="bg-[#C74022] text-white noto py-2 px-10 rounded-full hover:scale-105 transition hover:bg-[#555960]">หมด</button>';
+                // echo '<button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]" onclick="decreaseQuantity(\'quantity_' . $row["menu_name"] . '\')">-</button>';
+                // echo '<div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">';
+                // echo '<input id="quantity_' . $row["menu_name"] . '" class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">';
+                // echo '<p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>';
+                // echo '</div>';
+                // echo '<button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]" onclick="increaseQuantity(\'quantity_' . $row["menu_name"] . '\')">+</button>';
+                echo '</div>';
+
+            } else {
+                // แสดงรายการเมนูตามรูปแบบที่กำหนดเมื่อ status เป็น empty
+                $status = "หมด";
+                echo '<div class="flex justify-center">';
+                echo '<div class="mt-2 p-5">';
+                echo '<div class="relative">';
+                echo '<div class="absolute bg-[#656262CC] w-[180px] h-[195px]"></div>';
+                echo '<div class="w-[180px] h-[195px] bg-cover bg-no-repeat bg-center" style="background-image: url(' . $row["menu_img"] . ');"></div>';
+                echo '</div>';
+                echo '<p class="mitr text-[20px] text-[#B78D43] mt-4 w-[100%]">' . $row["menu_name"] . '</p>';
+                echo '<p class="noto text-[16px] text-white mt-4 w-[100%] tracking-[0.05em]"> สถานะ : <span class="underline">' . $status . '</span></p>';
+                // echo '<p class="mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>';
+                echo '<div class="flex justify-center mt-5"><button onclick="edit(this)" id="'. $row["menu_id"] .'" class="bg-[#61A12E] text-white noto py-2 px-10 rounded-full hover:scale-105 transition hover:bg-[#555960]">เติม</button></div>';
+            }
+            echo '</div>';
+            echo '</div>';
+        }
+    }
+}
+?>
+
+<script>
+    function show(){
+
+    }
+    function edit(btn){
+        var menuId = btn.id;
+        if (btn.innerText == "หมด") {
+            if (confirm("เมนูนี้หมดใช่หรือไม่")) {
+                sendStatusAndMenu(menuId);
+                alert("แก้ไขเมนูสำเร็จ");
+                location.reload();
+            }
+        }
+        else if (btn.innerText == "เติม") {
+            if (confirm("เตินสต๊อกดมนูนี้แล้วหรือไม่")) {
+                sendStatusAndMenu(menuId);
+                alert("แก้ไขเมนูสำเร็จ");
+                location.reload();
+            }
+        }
+    }
+
+    function sendStatusAndMenu(menuId){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText); // สามารถแสดงข้อความตอบกลับจากเซิร์ฟเวอร์ได้
+            }
+        };
+        xhttp.open("POST", "../../back_end/editmenu_chef.php", true); // เปลี่ยนเส้นทางไปยังไฟล์ PHP ที่จะดำเนินการอัปเดตฐานข้อมูล
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("menuId=" + menuId);
+        console.log("menuId=" + menuId);
+    }
+    
+    
+</script>
+
 <body class="bg-black">
     <div id="navbar-placeholder"></div>
     <script>
@@ -28,7 +133,7 @@
                     <div class="">
                         <p class="mitr text-[#B78D43] text-[36px] text-center mt-1">เมนูอาหาร</p>
                         <p class="noto text-[14px] text-white text-center mt-1 tracking-wide">
-                            คลิกที่อาหารเพื่อเพิ่มเข้ารายการ</p>
+                            คลิกที่อาหารเพื่อแก้ไขสถานะ</p>
                         <!-- categories -->
                         <div class="grid grid-cols-8 mt-7 gap-3 border-b-[3px] px-2 pb-5 border-[#817B85] mx-36">
                             <button id="1" onclick="move(this.id)"
@@ -159,7 +264,8 @@
             </div>
 
             <!-- ฝั่งรายการอาหาร -->
-          
+        </div>
+    </section>
 
     <!-- ตอนกด catagory -->
     <script>
@@ -180,144 +286,8 @@
             });
         }
 
-        function decreaseQuantity(quantityId) {
-            var quantityInput = document.getElementById(quantityId);
-            var quantity = parseInt(quantityInput.value);
-            if (quantity > 0) {
-                quantity--;
-                quantityInput.value = quantity;
-            }
-        }
-
-        function increaseQuantity(quantityId) {
-            var quantityInput = document.getElementById(quantityId);
-            var quantity = parseInt(quantityInput.value);
-            quantity++;
-            quantityInput.value = quantity;
-        }
-
-        function addToOrder(menuName, quantityId) {
-            // หา element ของ input จำนวนสินค้า
-            var quantityInput = document.getElementById(quantityId);
-
-            // ดึงค่าจำนวนสินค้าจาก input
-            var quantity = parseInt(quantityInput.value);
-
-            // ตรวจสอบว่ารายการอาหารนี้มีอยู่ในรายการออร์เดอร์แล้วหรือไม่
-            var existingItem = document.querySelector("#order-container [data-menu-name='" + menuName + "']");
-
-            if (existingItem) {
-                // ถ้ามีอยู่แล้ว ให้เพิ่มจำนวนสินค้าเข้าไป
-                var existingQuantity = parseInt(existingItem.querySelector(".quantity").textContent);
-                existingQuantity += quantity;
-                existingItem.querySelector(".quantity").textContent = existingQuantity;
-            } else {
-                // ถ้ายังไม่มีอยู่ในรายการออร์เดอร์ ให้สร้างรายการใหม่
-                var orderItem = document.createElement("div");
-                orderItem.classList.add("m-1", "hover:scale-105", "space-x-3", "mitr", "text-[16px]", "bg-[#D9D9D9]", "shadow-md", "p-3", "shadow-[#00000033]", "rounded-lg", "flex");
-                orderItem.dataset.menuName = menuName; // เก็บชื่อเมนูเป็นข้อมูลใน dataset
-
-                // สร้าง element สำหรับชื่ออาหาร
-                var nameParagraph = document.createElement("p");
-                nameParagraph.classList.add("mitr", "text-[16px]", "w-[150px]");
-                nameParagraph.textContent = menuName;
-
-                // สร้าง element สำหรับจำนวนสินค้า
-                var quantitySpan = document.createElement("span");
-                quantitySpan.classList.add("quantity");
-                quantitySpan.textContent = quantity;
-
-                var decreaseButton = document.createElement("button");
-                decreaseButton.classList.add("w-6", "h-6", "bg-[#B78D43]", "rounded-full", "hover:bg-[#817B85]");
-                decreaseButton.textContent = "-";
-                decreaseButton.onclick = function() {
-                    quantity--;
-                    if (quantity < 0) {
-                        quantity = 0; // ตรวจสอบไม่ให้ลดจำนวนต่ำกว่า 0
-                    }
-                    quantitySpan.textContent = quantity; // อัพเดทจำนวนใน order
-                };
-
-                var increaseButton = document.createElement("button");
-                increaseButton.classList.add("w-6", "h-6", "bg-[#B78D43]", "rounded-full", "hover:bg-[#817B85]");
-                increaseButton.textContent = "+";
-                increaseButton.onclick = function() {
-                    quantity++;
-                    quantitySpan.textContent = quantity; // อัพเดทจำนวนใน order
-                };
-
-                // ปรับตำแหน่งของปุ่มและจำนวนสินค้า
-                nameParagraph.style.marginTop = "8px";
-                decreaseButton.style.marginTop = "8px"; // ปรับตำแหน่งลงมา 5px
-                increaseButton.style.marginTop = "8px"; // ปรับตำแหน่งลงมา 5px
-                quantitySpan.style.marginTop = "8px"; // ปรับตำแหน่งลงมา 5px
-
-                // สร้าง element สำหรับลบรายการอาหาร
-                var deleteButton = document.createElement("div");
-                deleteButton.classList.add("ml-4", "hover:bg-[#C74022]", "hover:text-white", "p-2", "rounded-lg");
-                deleteButton.innerHTML = '<i class="text-[24px] fa-regular fa-trash-can"></i>';
-
-                // เพิ่ม element ลงใน element หลัก
-                orderItem.appendChild(nameParagraph);
-                orderItem.appendChild(decreaseButton);
-                orderItem.appendChild(quantitySpan);
-                orderItem.appendChild(increaseButton);
-                orderItem.appendChild(deleteButton);
-
-                // เพิ่ม event listener สำหรับการลบรายการอาหาร
-                deleteButton.addEventListener("click", function() {
-                    orderItem.remove(); // ลบรายการอาหารออกจากรายการออร์เดอร์
-                });
-
-                // เพิ่ม element รายการอาหารลงใน container ของรายการออร์เดอร์
-                var orderContainer = document.getElementById("order-container");
-                orderContainer.appendChild(orderItem);
-            }
-        }
-        
-        function orderFood() {
-            // รับค่าเลขโต๊ะที่ถูกเลือก
-            var tableId = document.getElementById("tableSelect").value;
-
-            if (!tableId) {
-                alert("โปรดเลือกเลขโต๊ะก่อนสั่งอาหาร");
-                return; // หยุดฟังก์ชันทันทีถ้าไม่มีการเลือกเลขโต๊ะ
-            }
-
-            // รับข้อมูลจากตารางออร์เดอร์
-            var orderItems = document.querySelectorAll("#order-container .flex[data-menu-name]");
-
-            // สร้าง XML Document
-            var xmlDoc = new XMLHttpRequest();
-
-            // กำหนดข้อมูลที่จะส่งไปยังเซิร์ฟเวอร์
-            var data = "tableId=" + tableId;
-            orderItems.forEach(function(item) {
-                var menuName = item.dataset.menuName;
-                var quantity = parseInt(item.querySelector(".quantity").textContent);
-                data += "&menuName[]=" + encodeURIComponent(menuName);
-                data += "&quantity[]=" + encodeURIComponent(quantity);
-            });
-
-            // เปิดการเชื่อมต่อ
-            xmlDoc.open("POST", "../../back_end/save_order.php", true);
-
-            // กำหนดส่วนของ header เพื่อระบุประเภทข้อมูลที่จะส่งไปยังเซิร์ฟเวอร์
-            xmlDoc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-            // เมื่อสำเร็จ
-            xmlDoc.onreadystatechange = function() {
-                if (xmlDoc.readyState == 4 && xmlDoc.status == 200) {
-                    alert(xmlDoc.responseText); // แสดงผลการบันทึกข้อมูล
-                    document.getElementById("order-container").innerHTML = ""; // ล้างรายการอาหารที่เลือก
-                    document.getElementById("tableSelect").value = ""; // ล้างค่าเลขโต๊ะที่เลือก
-                }
-            }
-
-            // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-            xmlDoc.send(data);
-        }
-
     </script>
+
 </body>
+
 </html>
