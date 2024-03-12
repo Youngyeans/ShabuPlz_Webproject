@@ -8,21 +8,14 @@
     <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="bg-black">
-    <!-- navbar -->
-    <nav class="fixed z-50 h-[60px] bg-gradient-to-b from-[#906F35] to-[#DCA94F] mitr flex justify-between items-center w-[100%] mx-auto">
-        <div class="pl-10 kolker-brush-regular text-[42px] text-white [text-shadow:_2px_3px_3px_rgb(0_0_0_/_40%)]">SHABU <span class="text-black">PLZ</span></div>
-        <div class="flex items-center space-x-5">
-            <div class="py-2 px-4 rounded-full hover:bg-white transition hover:scale-105 hover:drop-shadow-md md:mr-10">
-                <a href="login.html" class="flex space-x-5">
-                    <i class="fa-solid fa-user" style="font-size: 20px;"></i>
-                    <p>ออกจากระบบ</p>
-                </a>
-            </div>
-            <div class="pr-5 md:hidden">
-                <img onclick="onToggleMenu()" class="menu w-[25px] cursor-pointer md:hidden " src="../../src/img/menu.png">
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch('asset/waiternav.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+            });
+    </script>
 
     <div class="mx-10">
         <div class="top grid grid-cols-2 p-5 pt-20">

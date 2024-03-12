@@ -11,7 +11,52 @@
     <link rel="stylesheet" href="../css/style.css" />
 </head>
 
-<?php
+<script>
+    function edit(btn){
+        var menuId = btn.id;
+        if (btn.innerText == "หมด") {
+            if (confirm("เมนูนี้หมดใช่หรือไม่")) {
+                sendStatusAndMenu(menuId);
+                alert("แก้ไขเมนูสำเร็จ");
+                location.reload();
+            }
+        }
+        else if (btn.innerText == "เติม") {
+            if (confirm("เติมสต๊อกเมนูนี้แล้วหรือไม่")) {
+                sendStatusAndMenu(menuId);
+                alert("แก้ไขเมนูสำเร็จ");
+                location.reload();
+            }
+        }
+    }
+
+    function sendStatusAndMenu(menuId){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText); // สามารถแสดงข้อความตอบกลับจากเซิร์ฟเวอร์ได้
+            }
+        };
+        xhttp.open("POST", "../../back_end/editmenu_chef.php", true); // เปลี่ยนเส้นทางไปยังไฟล์ PHP ที่จะดำเนินการอัปเดตฐานข้อมูล
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("menuId=" + menuId);
+        console.log("menuId=" + menuId);
+    }
+    
+    
+</script>
+
+<body class="bg-black">
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch('asset/chefnav.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-placeholder').innerHTML = html;
+        });
+    </script>
+
+    <?php
     class MyDB extends SQLite3 {
         function __construct() {
             $this->open('../../back_end/shabu.db');
@@ -46,12 +91,6 @@
                 echo '<p class="noto text-[16px] text-white mt-4 w-[100%] tracking-[0.05em]"> สถานะ : ' . $status . '</p>';
                 echo '<div class="flex space-x-3 items-center justify-center mt-5">';
                 echo '<button onclick="edit(this)" id="' . $row["menu_id"] . '" class="bg-[#C74022] text-white noto py-2 px-10 rounded-full hover:scale-105 transition hover:bg-[#555960]">หมด</button>';
-                // echo '<button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]" onclick="decreaseQuantity(\'quantity_' . $row["menu_name"] . '\')">-</button>';
-                // echo '<div class="bg-[#817B85] w-[120px] py-2 px-4 flex rounded-lg">';
-                // echo '<input id="quantity_' . $row["menu_name"] . '" class="font-semibold noto text-[16px] bg-transparent text-white w-10 text-center border-b-[2px] border-white" value="0">';
-                // echo '<p class="noto text-[16px] text-white ml-7 font-semibold">ชุด</p>';
-                // echo '</div>';
-                // echo '<button class="noto font-bold text-[22px] w-[30px] h-[30px] bg-[#D9D9D9] rounded-full hover:bg-[#817B85]" onclick="increaseQuantity(\'quantity_' . $row["menu_name"] . '\')">+</button>';
                 echo '</div>';
 
             } else {
@@ -65,7 +104,6 @@
                 echo '</div>';
                 echo '<p class="mitr text-[20px] text-[#B78D43] mt-4 w-[100%]">' . $row["menu_name"] . '</p>';
                 echo '<p class="noto text-[16px] text-white mt-4 w-[100%] tracking-[0.05em]"> สถานะ : <span class="underline">' . $status . '</span></p>';
-                // echo '<p class="mitr text-[24px] font-semibold text-[#B78D43] mt-2">หมด</p>';
                 echo '<div class="flex justify-center mt-5"><button onclick="edit(this)" id="'. $row["menu_id"] .'" class="bg-[#61A12E] text-white noto py-2 px-10 rounded-full hover:scale-105 transition hover:bg-[#555960]">เติม</button></div>';
             }
             echo '</div>';
@@ -74,55 +112,6 @@
     }
 }
 ?>
-
-<script>
-    function show(){
-
-    }
-    function edit(btn){
-        var menuId = btn.id;
-        if (btn.innerText == "หมด") {
-            if (confirm("เมนูนี้หมดใช่หรือไม่")) {
-                sendStatusAndMenu(menuId);
-                alert("แก้ไขเมนูสำเร็จ");
-                location.reload();
-            }
-        }
-        else if (btn.innerText == "เติม") {
-            if (confirm("เตินสต๊อกดมนูนี้แล้วหรือไม่")) {
-                sendStatusAndMenu(menuId);
-                alert("แก้ไขเมนูสำเร็จ");
-                location.reload();
-            }
-        }
-    }
-
-    function sendStatusAndMenu(menuId){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText); // สามารถแสดงข้อความตอบกลับจากเซิร์ฟเวอร์ได้
-            }
-        };
-        xhttp.open("POST", "../../back_end/editmenu_chef.php", true); // เปลี่ยนเส้นทางไปยังไฟล์ PHP ที่จะดำเนินการอัปเดตฐานข้อมูล
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("menuId=" + menuId);
-        console.log("menuId=" + menuId);
-    }
-    
-    
-</script>
-
-<body class="bg-black">
-    <div id="navbar-placeholder"></div>
-    <script>
-        fetch('asset/chefnav.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('navbar-placeholder').innerHTML = html;
-            });
-    </script>
-    <script defer src="../js/navbar.js"></script>
 
     <section class="flex justify-center w-[100vw] p-0 m-0">
         <div class="flex mt-[80px] h-[280px]">
@@ -199,7 +188,7 @@
                         <!-- แต่ละ catrgory -->
                         <div id="section1" class="bg-[#817B8538] p-5 px-14 rounded-2xl">
                             <p class="mitr text-[24px] text-[#B0A9B5]">เนื้อวัว</p>
-                            <div class="grid grid-cols-3 gap-[36px] px-10">
+                            <div  class="grid grid-cols-3 gap-[36px] px-10">
                                 <?php displayMenuCategory($db, "เนื้อวัว"); ?>
                             </div>
                         </div>
