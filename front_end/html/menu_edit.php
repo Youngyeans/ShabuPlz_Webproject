@@ -114,7 +114,7 @@
 ?>
 
     <section class="flex justify-center w-[100vw] p-0 m-0">
-        <div class="flex mt-[80px] h-[280px]">
+        <div class="flex mt-[80px] h-[20vh]">
             <!-- ฝั่งซ้าย list menu -->
             <div class="w-[70vw] flex justify-center">
                 <div>
@@ -124,67 +124,67 @@
                         <p class="noto text-[14px] text-white text-center mt-1 tracking-wide">
                             คลิกที่อาหารเพื่อแก้ไขสถานะ</p>
                         <!-- categories -->
-                        <div class="grid grid-cols-8 mt-7 gap-3 border-b-[3px] px-2 pb-5 border-[#817B85] mx-36">
+                        <div class="grid grid-cols-8 mt-[1vh] gap-3 border-b-[3px] px-2 pb-5 border-[#817B85] mx-36">
                             <button id="1" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img src="../../src/img/bull 1.png">
+                                    <img class="w-[3vw] h-[3vw]" src="../../src/img/bull 1.png">
                                     <p class="noto text-[14px] text-white mt-4 text-center">เนื้อวัว</p>
                                 </center>
                             </button>
                             <button id="2" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-3" src="../../src/img/pig 1.png">
+                                    <img class="w-[3vw] h-[3vw]" class="mt-3" src="../../src/img/pig 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">เนื้อหมู</p>
                                 </center>
                             </button>
                             <button id="3" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-2" src="../../src/img/chicken (2) 1.png">
+                                    <img class="w-[3vw] h-[3vw]" class="mt-2" src="../../src/img/chicken (2) 1.png">
                                     <p class="noto text-[14px] text-white mt-6 text-center">เนื้อไก่</p>
                                 </center>
                             </button>
                             <button id="4" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-3" src="../../src/img/fish 1.png">
+                                    <img class="w-[3vw] h-[3vw]" class="mt-3" src="../../src/img/fish 1.png">
                                     <p class="noto text-[14px] text-white mt-6 text-center">อาหารทะเล</p>
                                 </center>
                             </button>
                             <button id="5" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-2" src="../../src/img/lettuce 1.png">
+                                    <img class="w-[3vw] h-[3vw]" class="mt-2" src="../../src/img/lettuce 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">ผัก</p>
                                 </center>
                             </button>
                             <button id="6" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-1" src="../../src/img/sausage 1.png">
+                                    <img class="w-[3vw] h-[3vw]" class="mt-1" src="../../src/img/sausage 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">อื่นๆ</p>
                                 </center>
                             </button>
                             <button id="7" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="" src="../../src/img/fried-potatoes 1.png">
+                                    <img class="w-[3vw] h-[3vw]" class="" src="../../src/img/fried-potatoes 1.png">
                                     <p class="noto text-[14px] text-white mt-5 text-center">ของทานเล่น</p>
                                 </center>
                             </button>
                             <button id="8" onclick="move(this.id)"
                                 class="hover:scale-110 transition hover:bg-[#B78D43] px-2 py-2 rounded-lg">
                                 <center>
-                                    <img class="mt-2" src="../../src/img/ice-pop 1.png">
+                                    <img class="w-[3vw] h-[3vw]" class="mt-2" src="../../src/img/ice-pop 1.png">
                                     <p class="noto text-[14px] text-white mt-6 text-center">ของหวาน</p>
                                 </center>
                             </button>
                         </div>
                     </div>
                     <!-- list menu -->
-                    <div id="menu" class="py-5 mt-10 pr-8 mx-16 h-[500px] overflow-auto rounded-2xl space-y-20">
+                    <div id="menu" class="py-5 mt-[2vh] pr-8 mx-16 h-[52vh] overflow-auto rounded-2xl space-y-20">
                         <!-- แต่ละ catrgory -->
                         <div id="section1" class="bg-[#817B8538] p-5 px-14 rounded-2xl">
                             <p class="mitr text-[24px] text-[#B0A9B5]">เนื้อวัว</p>

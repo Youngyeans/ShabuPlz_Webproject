@@ -29,7 +29,7 @@
             $menuImg = $menuRow['menu_img'];
 
             // สร้าง HTML สำหรับแสดงข้อมูล
-            echo '<div class="bg-[#D7D4CF] rounded-2xl p-6 h-[57%] transition hover:scale-105">';
+            echo '<div class="bg-[#D7D4CF] rounded-2xl p-6 h-[43vh] transition hover:scale-105">';
             echo '<center>';
             echo '<div class="w-[100%] h-[160px] bg-cover bg-no-repeat bg-center rounded-3xl" style="background-image: url(' . $menuImg . ');"></div>';
             echo ' <p class="mitr text-[20px] mt-4">' . $menuName . '</p>';
