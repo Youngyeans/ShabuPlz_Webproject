@@ -8,39 +8,56 @@
   <!-- tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- css -->
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="front_end/css/style.css" />
 </head>
 
 <body class="bg-black">
+<!-- navbar -->
+  <nav
+    class="fixed z-50 h-[60px] bg-gradient-to-b from-[#906F35] to-[#DCA94F] mitr flex justify-between items-center w-[100%] mx-auto">
+    <div class="pl-10 kolker-brush-regular text-[42px] text-white [text-shadow:_2px_3px_3px_rgb(0_0_0_/_40%)]">SHABU
+        <span class="text-black">PLZ</span></div>
+    <div
+        class="top-[-500px] nav-links md:static absolute bg-white md:bg-transparent md:min-h-fit min-h-[30vh] left-0 md:w-auto w-full flex items-center px-5">
+        <ul class="flex md:flex-row flex-col md:items-center md:space-x-3 md:md:space-y-0 space-y-5">
+ 
+            <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a
+                    href="index.html">หน้าหลัก</a></li>
+            <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a
+                    href="front_end/html/reservation.html">จองโต๊ะ</a></li>
+            <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a
+                href="front_end/html/menu.php">เมนู</a></li>
+            <li class=" py-1 px-4 rounded-full hover:bg-white transition hover:drop-shadow-md hover:scale-105"><a
+                    href="front_end/html/customer_order.html">ดูรายการอาหารที่สั่ง</a></li>
 
-  <!-- ยังแก้ไม่ได้ คิด error ทำให้เสดก่อน ค่อยมาแก้ละกัน -->
-  <div id="navbar-placeholder"></div>
-  <script>
-    fetch('asset/navbar.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('navbar-placeholder').innerHTML = html;
-      });
-  </script>
-  <script defer src="../js/navbar.js"></script>
-  <div class="fixed w-[100%] p-2 z-20 mitr text-[14px] bg-[#D7D4CF87] mt-[60px] flex space-x-7 justify-center">
-      <img src="../../src/img/time-past 1.png">
-      <div class="text-center">เปิดทุกวัน เวลาทำการ 11:00 - 23:00 น.</div>
-  </div>
+        </ul>
+    </div>
+    <div class="flex items-center space-x-5">
+        <div class="py-2 px-4 rounded-full hover:bg-white transition hover:scale-105 hover:drop-shadow-md md:mr-10">
+            <a href="front_end/html/login.html" class="flex space-x-5">
+                <i class="fa-solid fa-user" style="font-size: 20px;"></i>
+                <p>เข้าสู่ระบบ</p>
+            </a>
+        </div>
+        <div class="pr-5 md:hidden">
+            <img onclick="onToggleMenu()" class="menu w-[25px] cursor-pointer md:hidden " src="src/img/menu.png">
+        </div>
+    </div>
+</nav>
 
   <section>
-    <div class="w-full h-[calc(100vh-62px)] bg-cover bg-no-repeat bg-center flex justify-center items-center" style="background-image: url('../../src/img/landing.png');" >
+    <div class="w-full h-[calc(100vh-62px)] bg-cover bg-no-repeat bg-center flex justify-center items-center" style="background-image: url('src/img/landing.png');" >
       <div class=" mx-auto overflow-hidden flex flex-col items-center justify-center mt-[60px]">
         <h1
           class="text-white text-[40px] md:text-8xl libre-caslon tracking-widest [text-shadow:_10px_5px_5px_rgb(0_0_0_/_40%)]">
           Shabu PLZ</h1>
         <h2 class="noto text-white md:text-2xl text-[18px] mt-[1px] md:mt-5">ประสบการณ์ "กิน" ไม่รู้ลืม</h2>
         <div class="mt-10 space-x-[100px]">
-          <a href="menu.php">
+          <a href="front_end/html/menu.php">
             <button
               class="shadow-lg shadow-[#00000080] hover:bg-[#B78D43] transition hover:scale-105 bg-[#555960] w-[160px] h-12 text-white text-[20px] noto rounded-full">สั่งเมนูอาการ</button>
           </a>
-          <a href="reservation.html">
+          <a href="front_end/html/reservation.html">
             <button
               class="shadow-lg shadow-[#00000080] hover:bg-[#B78D43] transition hover:scale-105 bg-[#555960] w-[160px] h-12 text-white text-[20px] noto rounded-full">จองโต๊ะ</button>
           </a>
@@ -51,7 +68,7 @@
 
   <section class="flex justify-center m-0 mt-[250px]">
     <div class="grid grid-cols-2 gap-10 p-14">
-      <img src="../../src/img/section1.png" width="100%" />
+      <img src="src/img/section1.png" width="100%" />
       <div class="flex flex-col justify-center gap-10">
         <div class="text-[#B78D43] text-5xl mitr tracking-[.20em] leading-5 mt-8"
           style="-webkit-text-stroke:0.5px #B78D43;">ร้านชาบูเกรดพรีเมี่ยม</div>
@@ -76,7 +93,7 @@
         </div>
         <div class="h-5 flex justify-center pb-5 border-b-[3px] border-[#817B85]"></div>
       </div>
-      <img src="../../src/img/section2.png" width="100%" />
+      <img src="src/img/section2.png" width="100%" />
     </div>
   </section>
 
@@ -94,7 +111,7 @@
               <div
                 class="absolute bg-gradient-to-b from-[#000000AB] to-[#0000004D] hover:opacity-0 transition w-[247px] h-[480px]">
               </div>
-              <img src="../../src/img/g1.png" />
+              <img src="src/img/g1.png" />
             </center>
           </div>
           <div class="bg-[#B78D43] py-2 px-1 text-center rounded-lg mt-[90px] mx-2">
@@ -107,7 +124,7 @@
               <div
                 class="absolute bg-gradient-to-b from-[#000000AB] to-[#0000004D] hover:opacity-0 transition w-[247px] h-[480px]">
               </div>
-              <img src="../../src/img/g2.png" />
+              <img src="src/img/g2.png" />
             </center>
           </div>
           <div class="bg-[#B78D43] py-2 px-1 text-center rounded-lg mt-[90px] mx-2">
@@ -120,7 +137,7 @@
               <div
                 class="absolute bg-gradient-to-b from-[#000000AB] to-[#0000004D] hover:opacity-0 transition w-[247px] h-[480px]">
               </div>
-              <img src="../../src/img/g3.png" />
+              <img src="src/img/g3.png" />
             </center>
           </div>
           <div class="bg-[#B78D43] py-2 px-1 text-center rounded-lg mt-[90px] mx-2">
@@ -133,7 +150,7 @@
               <div
                 class="absolute bg-gradient-to-b from-[#000000AB] to-[#0000004D] hover:opacity-0 transition w-[247px] h-[480px]">
               </div>
-              <img src="../../src/img/g4.png" />
+              <img src="src/img/g4.png" />
             </center>
           </div>
           <div class="bg-[#B78D43] py-2 px-1 text-center rounded-lg mt-[90px] mx-2">
@@ -150,15 +167,15 @@
       <div class="grid grid-cols-2 mt-5 mr-[150px]">
         <div class="ml-[50px] space-y-6">
           <div class="relative">
-            <img class="absolute -left-[50px]" src="../../src/img/phone-call 1.png">
+            <img class="absolute -left-[50px]" src="src/img/phone-call 1.png">
             <div>089-XXX-XXXX</div>
           </div>
           <div class="relative">
-            <img class="absolute -left-[50px] -top-[5px]" src="../../src/img/mail 1.png">
+            <img class="absolute -left-[50px] -top-[5px]" src="src/img/mail 1.png">
             <div>shabu.plz@gmail.com</div>
           </div>
           <div class="relative">
-            <img class="absolute -left-[50px] top-[10px]" src="../../src/img/pin 1.png">
+            <img class="absolute -left-[50px] top-[10px]" src="src/img/pin 1.png">
             <div>
               <p class="m-0">ร้าน SHABU Plz</p>
               <p>ถนน ฉลองกรุง ลาดกระบัง เขตลาดกระบัง</p>

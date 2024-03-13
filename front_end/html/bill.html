@@ -68,31 +68,18 @@
     <script>
       function pay(btn) {
         var reservation_id = btn.id;
-        console.log(reservation_id);
         // ตรวจสอบว่ามี order ค้างหรือไม่
         if (confirm("ต้องการจ่ายบิลใช่ไหม")) {
-          // ดึงข้อมูลจากเซิร์ฟเวอร์เพื่อตรวจสอบ
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-              // ตรวจสอบข้อมูลที่ได้รับกลับมา
-              if (this.responseText.trim() === "มี order ค้าง") {
-                // แสดง alert แจ้งเตือนว่ามี order ค้าง
-                alert("ไม่สามารถจ่ายบิลได้เนื่องจากยังมี order ค้างอยู่");
-              } else {
-                // ส่งไปยังฟังก์ชัน sendtoDelete() เพื่อลบ reservation
-                sendtoDelete(reservation_id);
-                btn.innerText = "จ่ายบิลสำเร็จ";
-                btn.disabled = true;
-                // ใส่เปลี่ยนสีให้หน่อย
+          sendtoDelete(reservation_id);
+              btn.innerText = "จ่ายบิลสำเร็จ";
+              btn.disabled = true;
+              btn.classList.remove("bg-[#555960]")
+              btn.classList.remove("hover:scale-105")
+              btn.classList.remove("hover:bg-[#B78D43]")
+              btn.classList.add("bg-[#61A12E]")
               }
             }
-          };
-          xhttp.open("POST", "../../back_end/checkpay.php", true);
-          xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          xhttp.send("reservation_id=" + reservation_id);
-        }
-      }
+          
 
 
       function sendtoDelete(reservation_id) {

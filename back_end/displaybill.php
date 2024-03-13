@@ -40,8 +40,8 @@
                 
 
                 // แสดงข้อมูลบิล
-                echo '<div class="flex justify-center h-[50%]">';
-                echo '<div class="w-[40%] h-[100%] bg-cover bg-no-repeat bg-center" style="background-image: url(\'../../src/img/sukiyaki.png\');"></div>';
+                echo '<div class="flex justify-center">';
+                echo '<div class="w-[4vw] h-[4vw] bg-cover bg-no-repeat bg-center" style="background-image: url(\'../../src/img/sukiyaki.png\');"></div>';
                 echo '</div>';
                 echo '<div class="">';
                 echo '<div class="text-center text-[30px] text-[#B78D43] tracking-[0.05em] mitr font-semibold">Shabu <span class="text-[#7A6464]">PLZ</span></div>';

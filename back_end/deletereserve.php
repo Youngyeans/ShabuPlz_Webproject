@@ -21,7 +21,6 @@
     if ($result_reservation && $result_payment) {
         // สำเร็จในการอัปเดตข้อมูล
         echo "อัปเดตสถานะเรียบร้อยแล้ว";
-        header("Location: ../frontend/html/serving.html");
     } else {
         // ไม่สามารถอัปเดตข้อมูลได้
         echo "เกิดข้อผิดพลาดในการอัปเดตข้อมูล";

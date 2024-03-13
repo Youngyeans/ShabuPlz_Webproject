@@ -246,20 +246,6 @@
     </div>
 
     <script>
-
-        function move() {
-            const section = document.getElementById("beforeTable");
-            console.log(section);
-            const sectionY = section.getBoundingClientRect().top + window.scrollY;
-            console.log(sectionY);
-
-            window.scrollTo({
-                top: sectionY - window.innerHeight/6,
-                behavior: "smooth",
-            });
-        }
-
-
         function reserve() {
             let select = false;
             document.querySelectorAll('.table').forEach(btn => {
@@ -284,7 +270,7 @@
                                     // ถ้าคำตอบจากเซิร์ฟเวอร์เป็น "success"
                                     alert("จองเสร็จสิ้น");
                                     // ไปยังหน้า home
-                                    window.location.href = "home.html";
+                                    window.location.href = "../../index.html";
                                 } else {
                                     // กรณีคำตอบไม่ถูกต้อง
                                     alert("เกิดข้อผิดพลาดในการจอง");
@@ -339,7 +325,6 @@
             } else {
                 table.classList.remove("hidden");
             }
-            // move();
             setTimeout(function() {
                 console.log(table);
                 const tableY = table.getBoundingClientRect().top + window.scrollY;
